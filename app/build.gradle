@@ -2,6 +2,7 @@ plugins {
     id 'com.android.application'
     id 'kotlin-android'
     id 'androidx.navigation.safeargs.kotlin'
+    id 'com.google.gms.google-services'
 }
 
 android {
@@ -45,7 +46,8 @@ dependencies {
 
     implementation deps.navigation.fragment
     implementation deps.navigation.ui
-    implementation 'androidx.legacy:legacy-support-v4:1.0.0'
+    implementation deps.firebase.auth
+
 
     testImplementation deps.test.junit
     androidTestImplementation deps.test.androidJunit
