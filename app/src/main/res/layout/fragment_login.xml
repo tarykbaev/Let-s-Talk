@@ -3,13 +3,14 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".presentation.chat.ChatFragment">
+    tools:context=".presentation.login.LoginFragment">
 
     <TextView
-        android:gravity="center"
-        android:textSize="26sp"
+        android:id="@+id/tv_login"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:text="Chat fragment" />
+        android:gravity="center"
+        android:text="Login fragment"
+        android:textSize="26sp" />
 
 </FrameLayout>

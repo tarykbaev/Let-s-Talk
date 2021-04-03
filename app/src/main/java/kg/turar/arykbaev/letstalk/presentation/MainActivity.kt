@@ -1,4 +1,4 @@
-package kg.turar.arykbaev.letstalk
+package kg.turar.arykbaev.letstalk.presentation
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
@@ -7,6 +7,9 @@ import androidx.navigation.Navigation
 import androidx.navigation.ui.NavigationUI
 import androidx.navigation.ui.setupWithNavController
 import com.google.android.material.bottomnavigation.BottomNavigationView
+import kg.turar.arykbaev.letstalk.R
+import kg.turar.arykbaev.letstalk.extension.gone
+import kg.turar.arykbaev.letstalk.extension.visible
 
 class MainActivity : AppCompatActivity() {
 
@@ -15,19 +18,21 @@ class MainActivity : AppCompatActivity() {
 
 
     override fun onCreate(savedInstanceState: Bundle?) {
-        setTheme(R.style.Theme_LetsTalk)
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
         bottomNav = findViewById(R.id.bottom_nav)
         navController = Navigation.findNavController(this, R.id.fragment)
 
+        navController.addOnDestinationChangedListener { _, destination, _ ->
+            when(destination.id == R.id.login_fragment) {
+                true -> bottomNav.gone()
+                else -> bottomNav.visible()
+            }
+        }
+
         bottomNav.setupWithNavController(navController)
 
         NavigationUI.setupActionBarWithNavController(this, navController)
-    }
-
-    override fun onSupportNavigateUp(): Boolean {
-        return NavigationUI.navigateUp(navController, null)
     }
 }
