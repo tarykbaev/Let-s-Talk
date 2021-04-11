@@ -26,4 +26,12 @@
         android:padding="16dp"
         android:text="LOGIN" />
 
+    <TextView
+        android:id="@+id/tv_registration"
+        android:layout_marginTop="16dp"
+        android:layout_gravity="center"
+        android:text="Registration"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"/>
+
 </LinearLayout>

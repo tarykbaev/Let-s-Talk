@@ -25,14 +25,12 @@ class MainActivity : AppCompatActivity() {
         navController = Navigation.findNavController(this, R.id.fragment)
 
         navController.addOnDestinationChangedListener { _, destination, _ ->
-            when(destination.id == R.id.login_fragment) {
+            when(destination.id == R.id.login_fragment || destination.id == R.id.registrationFragment) {
                 true -> bottomNav.gone()
                 else -> bottomNav.visible()
             }
         }
 
         bottomNav.setupWithNavController(navController)
-
-        NavigationUI.setupActionBarWithNavController(this, navController)
     }
 }

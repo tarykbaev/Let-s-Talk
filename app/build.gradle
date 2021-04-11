@@ -32,6 +32,10 @@ android {
     kotlinOptions {
         jvmTarget = JavaVersion.VERSION_1_8.toString()
     }
+
+    buildFeatures {
+        viewBinding true
+    }
 }
 
 dependencies {
@@ -47,6 +51,7 @@ dependencies {
     implementation deps.navigation.fragment
     implementation deps.navigation.ui
     implementation deps.firebase.auth
+    implementation 'androidx.legacy:legacy-support-v4:1.0.0'
 
 
     testImplementation deps.test.junit
