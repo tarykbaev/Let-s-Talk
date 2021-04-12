@@ -46,16 +46,32 @@
 
     <fragment
         android:id="@+id/registrationFragment"
-        android:name="kg.turar.arykbaev.letstalk.presentation.login.RegistrationFragment"
+        android:name="kg.turar.arykbaev.letstalk.presentation.sign_up.StepOneFragment"
         android:label="fragment_registration"
-        tools:layout="@layout/fragment_registration">
-
+        tools:layout="@layout/fragment_step_one">
         <action
-            android:id="@+id/action_registrationFragment_to_login_fragment"
+            android:id="@+id/action_registrationFragment_to_stepTwoFragment"
+            app:destination="@id/stepTwoFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/stepTwoFragment"
+        android:name="kg.turar.arykbaev.letstalk.presentation.sign_up.StepTwoFragment"
+        android:label="fragment_step_two"
+        tools:layout="@layout/fragment_step_two">
+        <action
+            android:id="@+id/action_stepTwoFragment_to_stepThreeFragment"
+            app:destination="@id/stepThreeFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/stepThreeFragment"
+        android:name="kg.turar.arykbaev.letstalk.presentation.sign_up.StepThreeFragment"
+        android:label="fragment_step_three"
+        tools:layout="@layout/fragment_step_three">
+        <action
+            android:id="@+id/action_stepThreeFragment_to_login_fragment"
             app:destination="@id/login_fragment"
-            app:popUpTo="@id/registrationFragment"
-            app:popUpToInclusive="true"/>
-
+            app:popUpTo="@id/stepThreeFragment"
+            app:popUpToInclusive="true" />
     </fragment>
 
 </navigation>

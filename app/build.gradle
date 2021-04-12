@@ -47,12 +47,12 @@ dependencies {
     implementation deps.support.appCompat
     implementation deps.support.material
     implementation deps.support.constraint
+    implementation deps.support.legacy
 
     implementation deps.navigation.fragment
     implementation deps.navigation.ui
     implementation deps.firebase.auth
-    implementation 'androidx.legacy:legacy-support-v4:1.0.0'
-
+    implementation deps.circleimageview
 
     testImplementation deps.test.junit
     androidTestImplementation deps.test.androidJunit

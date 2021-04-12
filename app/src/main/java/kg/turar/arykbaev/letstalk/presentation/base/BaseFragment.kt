@@ -1,4 +1,4 @@
-package kg.turar.arykbaev.letstalk.presentation
+package kg.turar.arykbaev.letstalk.presentation.base
 
 import android.os.Bundle
 import android.view.LayoutInflater

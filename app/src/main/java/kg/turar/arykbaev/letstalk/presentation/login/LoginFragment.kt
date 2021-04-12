@@ -6,7 +6,7 @@ import android.widget.Toast
 import androidx.navigation.fragment.findNavController
 import kg.turar.arykbaev.letstalk.R
 import kg.turar.arykbaev.letstalk.databinding.FragmentLoginBinding
-import kg.turar.arykbaev.letstalk.presentation.BaseFragment
+import kg.turar.arykbaev.letstalk.presentation.base.BaseFragment
 
 
 class LoginFragment : BaseFragment<FragmentLoginBinding>() {
@@ -37,7 +37,7 @@ class LoginFragment : BaseFragment<FragmentLoginBinding>() {
             }
         }
 
-        ui.tvRegistration.setOnClickListener {
+        ui.tvSignUp.setOnClickListener {
             findNavController().navigate(R.id.action_login_fragment_to_registrationFragment)
         }
     }
