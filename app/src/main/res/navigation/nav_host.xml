@@ -68,9 +68,18 @@
         android:label="fragment_step_three"
         tools:layout="@layout/fragment_step_three">
         <action
-            android:id="@+id/action_stepThreeFragment_to_login_fragment"
+            android:id="@+id/action_stepThreeFragment_to_verifyMailFragment"
+            app:destination="@id/verifyMailFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/verifyMailFragment"
+        android:name="kg.turar.arykbaev.letstalk.presentation.sign_up.VerifyMailFragment"
+        android:label="fragment_verify_mail"
+        tools:layout="@layout/fragment_verify_mail">
+        <action
+            android:id="@+id/action_verifyMailFragment_to_login_fragment"
             app:destination="@id/login_fragment"
-            app:popUpTo="@id/stepThreeFragment"
+            app:popUpTo="@id/login_fragment"
             app:popUpToInclusive="true" />
     </fragment>
 

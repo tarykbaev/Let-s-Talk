@@ -16,6 +16,8 @@
         android:background="@drawable/rounded_corner_input"
         android:hint="Email"
         android:inputType="textEmailAddress"
+        app:boxStrokeWidth="0dp"
+        app:boxStrokeWidthFocused="0dp"
         app:layout_constraintBottom_toTopOf="@id/input_layout">
 
         <EditText
@@ -33,6 +35,8 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:hint="Password"
+        app:boxStrokeWidth="0dp"
+        app:boxStrokeWidthFocused="0dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -53,9 +57,9 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_gravity="center"
-        android:layout_marginTop="16dp"
+        android:layout_marginTop="@dimen/padding_16dp"
         android:text="@string/don_t_have_an_account_sign_up"
-        android:textColor="@color/primary"
+        android:textColor="@color/text_subtitle"
         android:textSize="@dimen/text_14sp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/input_layout" />

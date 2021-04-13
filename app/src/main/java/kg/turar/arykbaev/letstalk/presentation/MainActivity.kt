@@ -20,12 +20,18 @@ class MainActivity : BaseActivity<ActivityMainBinding>() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
-        val fragments = listOf(R.id.login_fragment, R.id.registrationFragment, R.id.stepTwoFragment, R.id.stepThreeFragment)
+        val fragments = listOf(
+            R.id.login_fragment,
+            R.id.registrationFragment,
+            R.id.stepTwoFragment,
+            R.id.stepThreeFragment,
+            R.id.verifyMailFragment
+        )
 
         navController = Navigation.findNavController(this, R.id.fragment)
 
         navController.addOnDestinationChangedListener { _, destination, _ ->
-            when(fragments.contains(destination.id)) {
+            when (fragments.contains(destination.id)) {
                 true -> ui.bottomNav.gone()
                 else -> ui.bottomNav.visible()
             }

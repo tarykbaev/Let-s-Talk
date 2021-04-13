@@ -22,9 +22,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="62dp"
-        android:background="@drawable/rounded_corner_input"
         android:orientation="horizontal"
-        android:padding="@dimen/padding_4dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/img_person">
@@ -62,7 +60,6 @@
         android:hint="Department"
         android:padding="@dimen/padding_14dp"
         app:layout_constraintTop_toBottomOf="@id/rg_gender" />
-
 
     <EditText
         android:id="@+id/input_class"

@@ -1,14 +1,126 @@
 <?xml version="1.0" encoding="utf-8"?>
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:padding="@dimen/padding_16dp"
     tools:context=".presentation.sign_up.StepThreeFragment">
 
-    <!-- TODO: Update blank fragment layout -->
     <TextView
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:text="@string/hello_blank_fragment" />
+        android:id="@+id/tv_from"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/padding_100dp"
+        android:text="I'm From"
+        android:textColor="@color/text"
+        android:textSize="@dimen/text_21sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 
-</FrameLayout>
+    <de.hdodenhof.circleimageview.CircleImageView
+        android:id="@+id/img_flag"
+        android:layout_width="30dp"
+        android:layout_height="30dp"
+        android:layout_marginTop="@dimen/padding_8dp"
+        android:layout_marginEnd="@dimen/padding_8dp"
+        android:visibility="gone"
+        app:layout_constraintEnd_toStartOf="@id/tv_country"
+        app:layout_constraintHorizontal_chainStyle="packed"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/tv_from" />
+
+    <TextView
+        android:id="@+id/tv_country"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/padding_8dp"
+        android:text="Select"
+        android:textColor="@color/text_subtitle"
+        android:textSize="@dimen/text_18sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@id/img_flag"
+        app:layout_constraintTop_toBottomOf="@id/tv_from" />
+
+    <View
+        android:id="@+id/view_divider"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/view_1dp"
+        android:layout_marginTop="@dimen/padding_32dp"
+        android:background="@color/secondary"
+        app:layout_constraintTop_toBottomOf="@id/tv_country" />
+
+    <TextView
+        android:id="@+id/tv_native_language"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/padding_32dp"
+        android:text="Native language"
+        android:textColor="@color/text"
+        android:textSize="@dimen/text_21sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/view_divider" />
+
+    <TextView
+        android:id="@+id/tv_language"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/padding_8dp"
+        android:text="Select"
+        android:textColor="@color/text_subtitle"
+        android:textSize="@dimen/text_18sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/tv_native_language" />
+
+    <View
+        android:id="@+id/view_divider_2"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/view_1dp"
+        android:layout_marginTop="@dimen/padding_32dp"
+        android:background="@color/secondary"
+        app:layout_constraintTop_toBottomOf="@id/tv_language" />
+
+    <TextView
+        android:id="@+id/tv_learning"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/padding_32dp"
+        android:text="I'm learning"
+        android:textColor="@color/text"
+        android:textSize="@dimen/text_21sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/view_divider_2" />
+
+    <TextView
+        android:id="@+id/tv_learn_language"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/padding_8dp"
+        android:text="Select"
+        android:textColor="@color/text_subtitle"
+        android:textSize="@dimen/text_18sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/tv_learning" />
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/view_1dp"
+        android:layout_marginTop="@dimen/padding_32dp"
+        android:background="@color/secondary"
+        app:layout_constraintTop_toBottomOf="@id/tv_learn_language" />
+
+    <Button
+        android:id="@+id/btn_finsh"
+        style="@style/TransparentButton"
+        android:text="Finish"
+        android:textAllCaps="false"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>
