@@ -3,4 +3,14 @@
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
     <string name="don_t_have_an_account_sign_up">Don\'t have an account? <b><u>Sign Up</u></b></string>
+    <string name="sign_up">Sign Up</string>
+    <string name="name">Name</string>
+    <string name="email">Email</string>
+    <string name="btn_continue">Continue</string>
+    <string name="btn_finish">Finish</string>
+    <string name="select">Select</string>
+    <string name="i_m_learning">I\'m learning</string>
+    <string name="native_language">Native language</string>
+    <string name="i_m_from">I\'m From</string>
+    <string name="hint_search">search</string>
 </resources>

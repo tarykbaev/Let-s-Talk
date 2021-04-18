@@ -13,4 +13,18 @@
         <item name="android:textColor">@drawable/btn_text_checked</item>
     </style>
 
+    <style name="text_subtitle">
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:textColor">@color/text_subtitle</item>
+        <item name="android:textSize">@dimen/text_18sp</item>
+    </style>
+
+    <style name="text_title">
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:textColor">@color/text</item>
+        <item name="android:textSize">@dimen/text_21sp</item>
+    </style>
+
 </resources>

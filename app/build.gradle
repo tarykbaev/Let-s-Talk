@@ -3,6 +3,8 @@ plugins {
     id 'kotlin-android'
     id 'androidx.navigation.safeargs.kotlin'
     id 'com.google.gms.google-services'
+    id 'kotlin-kapt'
+    id 'kotlin-parcelize'
 }
 
 android {
@@ -53,6 +55,9 @@ dependencies {
     implementation deps.navigation.ui
     implementation deps.firebase.auth
     implementation deps.circleimageview
+
+    implementation deps.parceler.api
+    kapt deps.parceler.compiler
 
     testImplementation deps.test.junit
     androidTestImplementation deps.test.androidJunit
