@@ -57,6 +57,7 @@ dependencies {
     implementation deps.circleimageview
 
     implementation deps.parceler.api
+    implementation 'com.google.firebase:firebase-database:19.7.0'
     kapt deps.parceler.compiler
 
     testImplementation deps.test.junit

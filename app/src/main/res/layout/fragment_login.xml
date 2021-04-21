@@ -65,6 +65,7 @@
         app:layout_constraintTop_toBottomOf="@id/input_layout" />
 
     <Button
+        android:enabled="false"
         android:id="@+id/btn_login"
         style="@style/AppButton"
         android:text="LOGIN"

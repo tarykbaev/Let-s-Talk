@@ -11,8 +11,8 @@ import kg.turar.arykbaev.letstalk.databinding.FragmentStepTwoBinding
 import kg.turar.arykbaev.letstalk.presentation.base.BaseFragment
 import kg.turar.arykbaev.letstalk.presentation.model.Department
 import kg.turar.arykbaev.letstalk.presentation.model.Grade
-import kg.turar.arykbaev.letstalk.presentation.search.Option
-import kg.turar.arykbaev.letstalk.presentation.search.SearchActivity
+import kg.turar.arykbaev.letstalk.presentation.search_activity.Option
+import kg.turar.arykbaev.letstalk.presentation.search_activity.SearchActivity
 import org.parceler.Parcels
 
 class StepTwoFragment : BaseFragment<FragmentStepTwoBinding>() {

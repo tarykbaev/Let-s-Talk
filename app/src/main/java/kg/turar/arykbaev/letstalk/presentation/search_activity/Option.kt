@@ -1,4 +1,4 @@
-package kg.turar.arykbaev.letstalk.presentation.search
+package kg.turar.arykbaev.letstalk.presentation.search_activity
 
 import android.os.Parcel
 import android.os.Parcelable

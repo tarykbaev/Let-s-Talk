@@ -17,6 +17,13 @@ class VerifyMailFragment : BaseFragment<FragmentVerifyMailBinding>() {
         ui.btnOpenApp.setOnClickListener {
             findNavController().navigate(R.id.action_verifyMailFragment_to_login_fragment)
         }
+
+//            mAuth.createUserWithEmailAndPassword(email, password).addOnSuccessListener {
+//                mAuth.currentUser.sendEmailVerification().addOnSuccessListener {
+//
+//                }
+//            }
+
     }
     override fun performViewBinding() = FragmentVerifyMailBinding.inflate(layoutInflater)
 }

@@ -1,15 +1,14 @@
-package kg.turar.arykbaev.letstalk.presentation.search
+package kg.turar.arykbaev.letstalk.presentation.search_activity
 
 import android.app.Activity
 import android.content.Intent
 import android.os.Bundle
-import android.util.Log
 import android.widget.ImageView
 import androidx.appcompat.app.AppCompatActivity
 import androidx.appcompat.widget.SearchView
 import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.LinearLayoutManager
-import kg.turar.arykbaev.letstalk.presentation.search.adapter.SearchAdapter
+import kg.turar.arykbaev.letstalk.presentation.search_activity.adapter.SearchAdapter
 import kg.turar.arykbaev.letstalk.R
 import kg.turar.arykbaev.letstalk.databinding.ActivitySearchBinding
 import kg.turar.arykbaev.letstalk.extension.gone

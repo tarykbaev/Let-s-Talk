@@ -13,4 +13,5 @@
     <string name="native_language">Native language</string>
     <string name="i_m_from">I\'m From</string>
     <string name="hint_search">search</string>
+    <string name="password_6_characters">Password: 6+ characters</string>
 </resources>

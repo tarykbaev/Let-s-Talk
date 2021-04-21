@@ -1,10 +1,10 @@
-package kg.turar.arykbaev.letstalk.presentation.search.adapter
+package kg.turar.arykbaev.letstalk.presentation.search_activity.adapter
 
 import android.view.ViewGroup
 import android.widget.Filter
 import android.widget.Filterable
 import androidx.recyclerview.widget.RecyclerView
-import kg.turar.arykbaev.letstalk.presentation.search.Option
+import kg.turar.arykbaev.letstalk.presentation.search_activity.Option
 import kg.turar.arykbaev.letstalk.presentation.view_holders.EmptyVH
 import kg.turar.arykbaev.letstalk.presentation.view_holders.ItemViewType
 import kg.turar.arykbaev.letstalk.presentation.view_holders.ItemViewType.EMPTY

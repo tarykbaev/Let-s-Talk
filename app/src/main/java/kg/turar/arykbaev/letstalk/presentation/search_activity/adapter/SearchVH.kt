@@ -1,4 +1,4 @@
-package kg.turar.arykbaev.letstalk.presentation.search.adapter
+package kg.turar.arykbaev.letstalk.presentation.search_activity.adapter
 
 import android.text.SpannableString
 import android.text.Spanned
@@ -8,7 +8,7 @@ import android.view.ViewGroup
 import kg.turar.arykbaev.letstalk.R
 import kg.turar.arykbaev.letstalk.databinding.ItemSearchBinding
 import kg.turar.arykbaev.letstalk.presentation.base.CoreVH
-import kg.turar.arykbaev.letstalk.presentation.search.Option
+import kg.turar.arykbaev.letstalk.presentation.search_activity.Option
 
 
 class SearchVH(

@@ -12,6 +12,8 @@
         android:layout_width="100dp"
         android:layout_height="100dp"
         android:layout_marginTop="80dp"
+        android:background="@drawable/rounded_corner_input"
+        android:padding="@dimen/padding_8dp"
         android:src="@drawable/camera"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -54,13 +56,13 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="@dimen/padding_64dp"
         android:background="@drawable/rounded_corner_input"
-        android:drawableEnd="@drawable/ic_arrow_forward"
         android:clickable="false"
-        android:focusable="false"
         android:cursorVisible="false"
+        android:drawableEnd="@drawable/ic_arrow_forward"
+        android:focusable="false"
         android:hint="Department"
-        android:text=""
         android:padding="@dimen/padding_14dp"
+        android:text=""
         app:layout_constraintTop_toBottomOf="@id/rg_gender" />
 
     <EditText
@@ -69,10 +71,10 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="@dimen/padding_16dp"
         android:background="@drawable/rounded_corner_input"
-        android:drawableEnd="@drawable/ic_arrow_forward"
         android:clickable="false"
-        android:focusable="false"
         android:cursorVisible="false"
+        android:drawableEnd="@drawable/ic_arrow_forward"
+        android:focusable="false"
         android:hint="Grade"
         android:padding="@dimen/padding_14dp"
         app:layout_constraintTop_toBottomOf="@id/input_department" />
