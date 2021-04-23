@@ -6,7 +6,7 @@
     android:layout_height="match_parent"
     android:gravity="center_vertical"
     android:padding="@dimen/padding_16dp"
-    tools:context=".presentation.login.LoginFragment">
+    tools:context=".ui.login.LoginFragment">
 
     <com.google.android.material.textfield.TextInputLayout
         android:id="@+id/input_email_layout"

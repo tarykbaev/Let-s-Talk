@@ -7,7 +7,7 @@
 
     <fragment
         android:id="@+id/chat_fragment"
-        android:name="kg.turar.arykbaev.letstalk.presentation.chat.ChatFragment"
+        android:name="kg.turar.arykbaev.letstalk.ui.chat.ChatFragment"
         android:label="fragment_chat"
         tools:layout="@layout/fragment_chat">
         <action
@@ -19,19 +19,19 @@
 
     <fragment
         android:id="@+id/profile_fragment"
-        android:name="kg.turar.arykbaev.letstalk.presentation.person.PersonFragment"
+        android:name="kg.turar.arykbaev.letstalk.ui.person.PersonFragment"
         android:label="fragment_person"
         tools:layout="@layout/fragment_person" />
 
     <fragment
         android:id="@+id/search_fragment"
-        android:name="kg.turar.arykbaev.letstalk.presentation.search.SearchFragment"
+        android:name="kg.turar.arykbaev.letstalk.ui.search.SearchFragment"
         android:label="fragment_search"
         tools:layout="@layout/fragment_search" />
 
     <fragment
         android:id="@+id/login_fragment"
-        android:name="kg.turar.arykbaev.letstalk.presentation.login.LoginFragment"
+        android:name="kg.turar.arykbaev.letstalk.ui.login.LoginFragment"
         android:label="fragment_login"
         tools:layout="@layout/fragment_login">
         <action
@@ -46,7 +46,7 @@
 
     <fragment
         android:id="@+id/registrationFragment"
-        android:name="kg.turar.arykbaev.letstalk.presentation.sign_up.StepOneFragment"
+        android:name="kg.turar.arykbaev.letstalk.ui.sign_up.StepOneFragment"
         android:label="fragment_registration"
         tools:layout="@layout/fragment_step_one">
         <action
@@ -55,7 +55,7 @@
     </fragment>
     <fragment
         android:id="@+id/stepTwoFragment"
-        android:name="kg.turar.arykbaev.letstalk.presentation.sign_up.StepTwoFragment"
+        android:name="kg.turar.arykbaev.letstalk.ui.sign_up.StepTwoFragment"
         android:label="fragment_step_two"
         tools:layout="@layout/fragment_step_two">
         <action
@@ -64,7 +64,7 @@
     </fragment>
     <fragment
         android:id="@+id/stepThreeFragment"
-        android:name="kg.turar.arykbaev.letstalk.presentation.sign_up.StepThreeFragment"
+        android:name="kg.turar.arykbaev.letstalk.ui.sign_up.StepThreeFragment"
         android:label="fragment_step_three"
         tools:layout="@layout/fragment_step_three">
         <action
@@ -73,7 +73,7 @@
     </fragment>
     <fragment
         android:id="@+id/verifyMailFragment"
-        android:name="kg.turar.arykbaev.letstalk.presentation.sign_up.VerifyMailFragment"
+        android:name="kg.turar.arykbaev.letstalk.ui.sign_up.VerifyMailFragment"
         android:label="fragment_verify_mail"
         tools:layout="@layout/fragment_verify_mail">
         <action

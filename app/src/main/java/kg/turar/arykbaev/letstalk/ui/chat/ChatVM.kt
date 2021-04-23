@@ -1,0 +1,21 @@
+package kg.turar.arykbaev.letstalk.ui.chat
+
+import kg.turar.arykbaev.letstalk.repository.AuthAppRepository
+import kg.turar.arykbaev.letstalk.ui.base.BaseVM
+import javax.inject.Inject
+
+class ChatVM @Inject constructor(private val repository: AuthAppRepository) : BaseVM() {
+
+    init {
+        event = repository.getEvent()
+    }
+
+    fun logout() {
+        repository.logout()
+    }
+
+    fun checkAuthentication() {
+        repository.checkAuthentication()
+    }
+
+}

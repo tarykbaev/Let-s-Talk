@@ -41,7 +41,6 @@ android {
 }
 
 dependencies {
-    implementation project(':core')
 
     implementation deps.kotlin.stdlib
     implementation deps.kotlin.ktx
@@ -53,12 +52,17 @@ dependencies {
 
     implementation deps.navigation.fragment
     implementation deps.navigation.ui
+
     implementation deps.firebase.auth
+    implementation deps.firebase.database
+
     implementation deps.circleimageview
 
     implementation deps.parceler.api
-    implementation 'com.google.firebase:firebase-database:19.7.0'
     kapt deps.parceler.compiler
+
+    implementation deps.dagger.dagger
+    kapt deps.dagger.daggerCompiler
 
     testImplementation deps.test.junit
     androidTestImplementation deps.test.androidJunit

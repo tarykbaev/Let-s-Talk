@@ -6,7 +6,7 @@
     android:layout_height="match_parent"
     android:orientation="vertical"
     android:padding="@dimen/padding_16dp"
-    tools:context=".presentation.sign_up.StepOneFragment">
+    tools:context=".ui.sign_up.StepOneFragment">
 
     <TextView
         android:id="@+id/tv_title"

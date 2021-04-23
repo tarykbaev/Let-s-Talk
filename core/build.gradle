@@ -11,4 +11,10 @@ java {
 
 dependencies {
     implementation deps.kotlin.stdlib
+
+    implementation deps.firebase.auth
+    implementation deps.firebase.database
+
+    implementation deps.dagger.dagger
+    kapt deps.dagger.daggerCompiler
 }
