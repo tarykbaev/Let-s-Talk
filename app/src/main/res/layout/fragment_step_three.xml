@@ -9,12 +9,12 @@
 
     <TextView
         android:id="@+id/tv_from"
+        style="@style/text_title"
         android:layout_marginTop="@dimen/padding_100dp"
         android:text="@string/i_m_from"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        style="@style/text_title" />
+        app:layout_constraintTop_toTopOf="parent" />
 
     <de.hdodenhof.circleimageview.CircleImageView
         android:id="@+id/img_flag"
@@ -114,6 +114,7 @@
     <Button
         android:id="@+id/btn_finsh"
         style="@style/AppButton"
+        android:enabled="false"
         android:text="@string/btn_finish"
         android:textAllCaps="false"
         app:layout_constraintBottom_toBottomOf="parent"

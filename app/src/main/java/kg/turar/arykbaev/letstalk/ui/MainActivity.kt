@@ -25,7 +25,7 @@ class MainActivity : BaseActivity<ActivityMainBinding>() {
 
         val fragments = listOf(
             R.id.login_fragment,
-            R.id.registrationFragment,
+            R.id.stepOneFragment,
             R.id.stepTwoFragment,
             R.id.stepThreeFragment,
             R.id.verifyMailFragment

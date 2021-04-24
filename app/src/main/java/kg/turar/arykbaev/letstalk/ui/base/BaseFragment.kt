@@ -10,10 +10,6 @@ import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.NavDirections
 import androidx.navigation.fragment.findNavController
 import androidx.viewbinding.ViewBinding
-import com.google.firebase.auth.FirebaseAuth
-import com.google.firebase.database.DatabaseReference
-import com.google.firebase.database.FirebaseDatabase
-import kg.turar.arykbaev.letstalk.App
 import javax.inject.Inject
 
 abstract class BaseFragment<DataBinding : ViewBinding, ViewModel : BaseVM>

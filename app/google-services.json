@@ -1,33 +1,63 @@
 {
   "project_info": {
-    "project_number": "124889457404",
-    "project_id": "let-s-talk-cde62",
-    "storage_bucket": "let-s-talk-cde62.appspot.com"
+    "project_number": "719708744509",
+    "firebase_url": "https://language-2020-default-rtdb.europe-west1.firebasedatabase.app",
+    "project_id": "language-2020",
+    "storage_bucket": "language-2020.appspot.com"
   },
   "client": [
     {
       "client_info": {
-        "mobilesdk_app_id": "1:124889457404:android:59e149f1b26dbd398cad79",
+        "mobilesdk_app_id": "1:719708744509:android:582c5b2fe04b609815f354",
         "android_client_info": {
           "package_name": "kg.turar.arykbaev.letstalk"
         }
       },
       "oauth_client": [
         {
-          "client_id": "124889457404-k2obkl42f11kv7ghmqafjio6uuf01264.apps.googleusercontent.com",
+          "client_id": "719708744509-29mg3ufrkea0hhrljl39uoc14mskkra4.apps.googleusercontent.com",
           "client_type": 3
         }
       ],
       "api_key": [
         {
-          "current_key": "AIzaSyA0Kz6f-pCFRzbUpBDGKhFtPkesRUqOqVE"
+          "current_key": "AIzaSyBccW2yxPlnyEYH5-KeuQ1HiuaCaL4P1qo"
         }
       ],
       "services": {
         "appinvite_service": {
           "other_platform_oauth_client": [
             {
-              "client_id": "124889457404-k2obkl42f11kv7ghmqafjio6uuf01264.apps.googleusercontent.com",
+              "client_id": "719708744509-29mg3ufrkea0hhrljl39uoc14mskkra4.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:719708744509:android:b06ae6f2844ae35215f354",
+        "android_client_info": {
+          "package_name": "kg.turar.arykbaev.temp"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "719708744509-29mg3ufrkea0hhrljl39uoc14mskkra4.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBccW2yxPlnyEYH5-KeuQ1HiuaCaL4P1qo"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "719708744509-29mg3ufrkea0hhrljl39uoc14mskkra4.apps.googleusercontent.com",
               "client_type": 3
             }
           ]

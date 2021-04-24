@@ -37,6 +37,5 @@ abstract class VMModule {
     @Binds
     @IntoMap
     @VMKey(SignUpVM::class)
-    @Singleton
     abstract fun bindSignUpVM(signUpVM: SignUpVM): ViewModel
 }

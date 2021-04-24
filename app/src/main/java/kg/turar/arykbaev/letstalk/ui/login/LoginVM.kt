@@ -1,6 +1,7 @@
 package kg.turar.arykbaev.letstalk.ui.login
 
-import kg.turar.arykbaev.letstalk.repository.AuthAppRepository
+
+import kg.turar.arykbaev.letstalk.data.repository.AuthAppRepository
 import kg.turar.arykbaev.letstalk.ui.base.BaseVM
 import javax.inject.Inject
 

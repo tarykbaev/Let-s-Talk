@@ -14,4 +14,9 @@
     <string name="i_m_from">I\'m From</string>
     <string name="hint_search">search</string>
     <string name="password_6_characters">Password: 6+ characters</string>
+    <string name="female">Female</string>
+    <string name="male">Male</string>
+    <string name="department">Department</string>
+    <string name="grade">Grade</string>
+    <string name="next">Next</string>
 </resources>

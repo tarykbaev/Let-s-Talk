@@ -64,6 +64,8 @@ dependencies {
     implementation deps.dagger.dagger
     kapt deps.dagger.daggerCompiler
 
+    api 'com.theartofdev.edmodo:android-image-cropper:2.8.0'
+
     testImplementation deps.test.junit
     androidTestImplementation deps.test.androidJunit
     androidTestImplementation deps.test.espresso

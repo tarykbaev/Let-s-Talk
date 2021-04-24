@@ -9,10 +9,9 @@
 
     <de.hdodenhof.circleimageview.CircleImageView
         android:id="@+id/img_person"
-        android:layout_width="100dp"
-        android:layout_height="100dp"
+        android:layout_width="150dp"
+        android:layout_height="150dp"
         android:layout_marginTop="80dp"
-        android:background="@drawable/rounded_corner_input"
         android:padding="@dimen/padding_8dp"
         android:src="@drawable/camera"
         app:layout_constraintEnd_toEndOf="parent"
@@ -30,6 +29,7 @@
         app:layout_constraintTop_toBottomOf="@id/img_person">
 
         <RadioButton
+            android:id="@+id/rb_female"
             android:layout_width="wrap_content"
             android:layout_height="42dp"
             android:layout_marginEnd="@dimen/padding_16dp"
@@ -37,16 +37,17 @@
             android:background="@drawable/radio_btn_selector"
             android:button="@null"
             android:gravity="center"
-            android:text="Female" />
+            android:text="@string/female" />
 
         <RadioButton
+            android:id="@+id/rb_male"
             android:layout_width="wrap_content"
             android:layout_height="42dp"
             android:layout_weight="1"
             android:background="@drawable/radio_btn_selector"
             android:button="@null"
             android:gravity="center"
-            android:text="Male" />
+            android:text="@string/male" />
 
     </RadioGroup>
 
@@ -60,7 +61,7 @@
         android:cursorVisible="false"
         android:drawableEnd="@drawable/ic_arrow_forward"
         android:focusable="false"
-        android:hint="Department"
+        android:hint="@string/department"
         android:padding="@dimen/padding_14dp"
         android:text=""
         app:layout_constraintTop_toBottomOf="@id/rg_gender" />
@@ -75,7 +76,7 @@
         android:cursorVisible="false"
         android:drawableEnd="@drawable/ic_arrow_forward"
         android:focusable="false"
-        android:hint="Grade"
+        android:hint="@string/grade"
         android:padding="@dimen/padding_14dp"
         app:layout_constraintTop_toBottomOf="@id/input_department" />
 
@@ -84,7 +85,8 @@
         style="@style/AppButton"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Next"
+        android:enabled="false"
+        android:text="@string/next"
         android:textAllCaps="false"
         app:layout_constraintBottom_toBottomOf="parent" />
 

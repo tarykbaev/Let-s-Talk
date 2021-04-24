@@ -41,16 +41,16 @@
             app:popUpToInclusive="true" />
         <action
             android:id="@+id/action_login_fragment_to_registrationFragment"
-            app:destination="@id/registrationFragment" />
+            app:destination="@id/stepOneFragment" />
     </fragment>
 
     <fragment
-        android:id="@+id/registrationFragment"
+        android:id="@+id/stepOneFragment"
         android:name="kg.turar.arykbaev.letstalk.ui.sign_up.StepOneFragment"
         android:label="fragment_registration"
         tools:layout="@layout/fragment_step_one">
         <action
-            android:id="@+id/action_registrationFragment_to_stepTwoFragment"
+            android:id="@+id/toStepTwoFragment"
             app:destination="@id/stepTwoFragment" />
     </fragment>
     <fragment
@@ -59,8 +59,11 @@
         android:label="fragment_step_two"
         tools:layout="@layout/fragment_step_two">
         <action
-            android:id="@+id/action_stepTwoFragment_to_stepThreeFragment"
+            android:id="@+id/toStepThreeFragment"
             app:destination="@id/stepThreeFragment" />
+        <argument
+            android:name="user"
+            app:argType="kg.turar.arykbaev.letstalk.domain.User" />
     </fragment>
     <fragment
         android:id="@+id/stepThreeFragment"
@@ -70,6 +73,9 @@
         <action
             android:id="@+id/action_stepThreeFragment_to_verifyMailFragment"
             app:destination="@id/verifyMailFragment" />
+        <argument
+            android:name="userData"
+            app:argType="kg.turar.arykbaev.letstalk.domain.User" />
     </fragment>
     <fragment
         android:id="@+id/verifyMailFragment"

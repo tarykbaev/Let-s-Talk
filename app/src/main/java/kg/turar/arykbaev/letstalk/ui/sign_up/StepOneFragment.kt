@@ -4,11 +4,11 @@ import android.os.Bundle
 import android.view.View
 import android.widget.EditText
 import androidx.core.widget.addTextChangedListener
-import androidx.navigation.fragment.findNavController
 import kg.turar.arykbaev.letstalk.App
 import kg.turar.arykbaev.letstalk.R
 import kg.turar.arykbaev.letstalk.databinding.FragmentStepOneBinding
 import kg.turar.arykbaev.letstalk.domain.Event
+import kg.turar.arykbaev.letstalk.domain.User
 import kg.turar.arykbaev.letstalk.extension.isValidEmail
 import kg.turar.arykbaev.letstalk.extension.showWarningSnackbar
 import kg.turar.arykbaev.letstalk.extension.toTextString
@@ -21,6 +21,7 @@ class StepOneFragment : BaseFragment<FragmentStepOneBinding, SignUpVM>(SignUpVM:
         (activity?.application as App).appComponent.inject(this)
         super.onViewCreated(view, savedInstanceState)
         setupViews()
+        subscribeToLiveData()
     }
 
     private fun setupViews() {
@@ -40,20 +41,29 @@ class StepOneFragment : BaseFragment<FragmentStepOneBinding, SignUpVM>(SignUpVM:
         input.addTextChangedListener { toggleButtonState() }
     }
 
-    private fun emailValidation(email: String) {
-        when (email.isValidEmail()) {
-            true -> nextValidation(email)
-            else -> showWarningSnackbar("Manas University email only", ui.btnSignUp)
-        }
-    }
-
-    private fun nextValidation(email: String) {
-        vm.isNewEmail(email).observe(viewLifecycleOwner, {
+    private fun subscribeToLiveData() {
+        vm.event.observe(viewLifecycleOwner, {
             when(it) {
-                true -> navigate(R.id.action_registrationFragment_to_stepTwoFragment)
-                false -> showWarningSnackbar("This email address already exists", ui.btnSignUp)
+                is Event.Notification -> showWarningSnackbar(it.message, ui.btnSignUp)
+                is Event.Success -> sendUser()
             }
         })
+    }
+
+    private fun sendUser() {
+        val user = User(
+            ui.inputName.toTextString(),
+            ui.inputEmail.toTextString(),
+            ui.inputPassword.toTextString()
+        )
+        navigateTo(StepOneFragmentDirections.toStepTwoFragment(user))
+    }
+
+    private fun emailValidation(email: String) {
+        when (email.isValidEmail()) {
+            true -> vm.checkEmail(email)
+            else -> showWarningSnackbar("Manas University email only", ui.btnSignUp)
+        }
     }
 
     private fun toggleButtonState() {
@@ -68,6 +78,11 @@ class StepOneFragment : BaseFragment<FragmentStepOneBinding, SignUpVM>(SignUpVM:
 
     private fun isValidPassword(input: EditText): Boolean {
         return input.text.isNotEmpty() && input.text.length >= 6
+    }
+
+    override fun onDestroyView() {
+        super.onDestroyView()
+        vm.event.value = null
     }
 
     override fun performViewBinding() = FragmentStepOneBinding.inflate(layoutInflater)
