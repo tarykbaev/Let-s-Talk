@@ -18,6 +18,7 @@ class ChatFragment : BaseFragment<FragmentChatBinding, ChatVM>(ChatVM::class.jav
         setupViews()
         subscribeToLiveData()
         checkAuthentication()
+        vm.initUser()
     }
 
     private fun checkAuthentication() {

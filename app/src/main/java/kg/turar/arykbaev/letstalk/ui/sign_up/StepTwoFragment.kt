@@ -5,14 +5,10 @@ import android.app.Activity.RESULT_OK
 import android.content.Intent
 import android.os.Bundle
 import android.view.View
-import androidx.navigation.fragment.findNavController
 import androidx.navigation.fragment.navArgs
 import com.theartofdev.edmodo.cropper.CropImage
 import kg.turar.arykbaev.letstalk.App
-import kg.turar.arykbaev.letstalk.R
 import kg.turar.arykbaev.letstalk.databinding.FragmentStepTwoBinding
-import kg.turar.arykbaev.letstalk.domain.Gender
-import kg.turar.arykbaev.letstalk.domain.User
 import kg.turar.arykbaev.letstalk.model.Department
 import kg.turar.arykbaev.letstalk.model.Grade
 import kg.turar.arykbaev.letstalk.ui.MainActivity

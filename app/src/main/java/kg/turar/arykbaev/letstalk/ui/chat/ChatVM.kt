@@ -10,6 +10,10 @@ class ChatVM @Inject constructor(private val repository: AuthAppRepository) : Ba
         event = repository.getEvent()
     }
 
+    fun initUser() {
+        repository.initUser()
+    }
+
     fun logout() {
         repository.logout()
     }

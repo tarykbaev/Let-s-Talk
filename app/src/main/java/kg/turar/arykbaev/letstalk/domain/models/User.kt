@@ -1,4 +1,4 @@
-package kg.turar.arykbaev.letstalk.domain
+package kg.turar.arykbaev.letstalk.domain.models
 
 import android.net.Uri
 import android.os.Parcelable
@@ -13,7 +13,9 @@ data class User(
     var grade: String = "",
     var gender: String = "",
     var uri: Uri? = null,
+    var image_url: String = "",
     var from: String = "",
     var nativeLang: String = "",
-    var learningLang: String = ""
+    var learningLang: String = "",
+    var state: String = ""
 ): Parcelable

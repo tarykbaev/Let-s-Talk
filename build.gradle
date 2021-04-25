@@ -43,7 +43,9 @@ buildscript {
                     'core'      : "com.google.firebase:firebase-core:16.0.6",
                     'messaging' : "com.google.firebase:firebase-messaging:17.4.0",
                     'auth'      : "com.google.firebase:firebase-auth:20.0.3",
-                    'database'  : "com.google.firebase:firebase-database:19.7.0"
+                    'database'  : "com.google.firebase:firebase-database:19.7.0",
+                    'firestore' : "com.google.firebase:firebase-storage:19.2.2"
+
             ],
             square      : [
                     'retrofit'          : "com.squareup.retrofit2:retrofit:${versions.retrofit}",

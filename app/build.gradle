@@ -55,6 +55,7 @@ dependencies {
 
     implementation deps.firebase.auth
     implementation deps.firebase.database
+    implementation deps.firebase.firestore
 
     implementation deps.circleimageview
 

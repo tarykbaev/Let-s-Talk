@@ -5,10 +5,9 @@ import android.view.View
 import android.widget.EditText
 import androidx.core.widget.addTextChangedListener
 import kg.turar.arykbaev.letstalk.App
-import kg.turar.arykbaev.letstalk.R
 import kg.turar.arykbaev.letstalk.databinding.FragmentStepOneBinding
 import kg.turar.arykbaev.letstalk.domain.Event
-import kg.turar.arykbaev.letstalk.domain.User
+import kg.turar.arykbaev.letstalk.domain.models.User
 import kg.turar.arykbaev.letstalk.extension.isValidEmail
 import kg.turar.arykbaev.letstalk.extension.showWarningSnackbar
 import kg.turar.arykbaev.letstalk.extension.toTextString
