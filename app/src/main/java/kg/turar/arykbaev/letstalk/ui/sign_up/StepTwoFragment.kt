@@ -25,8 +25,8 @@ class StepTwoFragment : BaseFragment<FragmentStepTwoBinding, SignUpVM>(SignUpVM:
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         (activity?.application as App).appComponent.inject(this)
         super.onViewCreated(view, savedInstanceState)
-        setupViews()
         setUser()
+        setupViews()
     }
 
     private fun setUser() {
@@ -62,6 +62,8 @@ class StepTwoFragment : BaseFragment<FragmentStepTwoBinding, SignUpVM>(SignUpVM:
     }
 
     private fun setupViews() {
+        if (vm.user.uri != null) ui.imgPerson.setImageURI(vm.user.uri)
+
         val department = listOf(Department("Computer eng"), Department("Chemistry"))
         ui.inputDepartment.setOnClickListener {
             SearchActivity.show(this, department.map { Option(it, it.description) })

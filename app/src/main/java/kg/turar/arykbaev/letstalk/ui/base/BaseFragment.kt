@@ -21,7 +21,6 @@ abstract class BaseFragment<DataBinding : ViewBinding, ViewModel : BaseVM>
 
     abstract fun performViewBinding(): DataBinding
 
-
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         vm = ViewModelProvider(this, vmFactory).get(viewModelClass)
@@ -37,5 +36,11 @@ abstract class BaseFragment<DataBinding : ViewBinding, ViewModel : BaseVM>
     }
 
     fun navigateTo(navDirections: NavDirections) = findNavController().navigate(navDirections)
+
     fun navigate(@IdRes idRes: Int) = findNavController().navigate(idRes)
+
+    override fun onDestroyView() {
+        super.onDestroyView()
+        vm.event.value = null
+    }
 }

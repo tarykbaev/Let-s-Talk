@@ -8,12 +8,13 @@ import com.google.android.material.bottomnavigation.BottomNavigationView
 import kg.turar.arykbaev.letstalk.App
 import kg.turar.arykbaev.letstalk.R
 import kg.turar.arykbaev.letstalk.databinding.ActivityMainBinding
+import kg.turar.arykbaev.letstalk.domain.UserState
 import kg.turar.arykbaev.letstalk.extension.gone
 import kg.turar.arykbaev.letstalk.extension.visible
 import kg.turar.arykbaev.letstalk.ui.base.BaseActivity
 
 
-class MainActivity : BaseActivity<ActivityMainBinding>() {
+class MainActivity : BaseActivity<ActivityMainBinding, MainVM>(MainVM::class.java) {
 
     private lateinit var navController: NavController
     private lateinit var bottomNav: BottomNavigationView
@@ -44,4 +45,14 @@ class MainActivity : BaseActivity<ActivityMainBinding>() {
     }
 
     override fun performBinding() = ActivityMainBinding.inflate(layoutInflater)
+
+    override fun onResume() {
+        super.onResume()
+        vm.changeUserState(UserState.ONLINE)
+    }
+
+    override fun onStop() {
+        super.onStop()
+        vm.changeUserState(UserState.OFFLINE)
+    }
 }

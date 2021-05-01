@@ -79,10 +79,5 @@ class StepOneFragment : BaseFragment<FragmentStepOneBinding, SignUpVM>(SignUpVM:
         return input.text.isNotEmpty() && input.text.length >= 6
     }
 
-    override fun onDestroyView() {
-        super.onDestroyView()
-        vm.event.value = null
-    }
-
     override fun performViewBinding() = FragmentStepOneBinding.inflate(layoutInflater)
 }

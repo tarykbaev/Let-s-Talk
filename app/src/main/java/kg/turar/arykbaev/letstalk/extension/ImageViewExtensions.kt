@@ -11,3 +11,8 @@ fun ImageView.setImageByUrl(url: String) {
         .placeholder(R.drawable.person)
         .into(this)
 }
+
+fun ImageView.setImageByName(name: String, resType: String = "drawable") {
+    val resId = resources.getIdentifier(name, resType, context.packageName)
+    this.setImageResource(resId)
+}

@@ -9,10 +9,13 @@ import androidx.core.content.ContextCompat
 import androidx.navigation.fragment.navArgs
 import kg.turar.arykbaev.letstalk.App
 import kg.turar.arykbaev.letstalk.R
+import kg.turar.arykbaev.letstalk.data.source.Countries
 import kg.turar.arykbaev.letstalk.databinding.FragmentStepThreeBinding
 import kg.turar.arykbaev.letstalk.domain.Event
+import kg.turar.arykbaev.letstalk.extension.setImageByName
 import kg.turar.arykbaev.letstalk.extension.showMessage
 import kg.turar.arykbaev.letstalk.extension.showWarningSnackbar
+import kg.turar.arykbaev.letstalk.extension.visible
 import kg.turar.arykbaev.letstalk.model.From
 import kg.turar.arykbaev.letstalk.model.LearningLanguage
 import kg.turar.arykbaev.letstalk.model.NativeLanguage
@@ -20,6 +23,7 @@ import kg.turar.arykbaev.letstalk.ui.base.BaseFragment
 import kg.turar.arykbaev.letstalk.ui.search_activity.Option
 import kg.turar.arykbaev.letstalk.ui.search_activity.SearchActivity
 import org.parceler.Parcels
+import java.util.*
 
 
 class StepThreeFragment : BaseFragment<FragmentStepThreeBinding, SignUpVM>(SignUpVM::class.java) {
@@ -54,24 +58,16 @@ class StepThreeFragment : BaseFragment<FragmentStepThreeBinding, SignUpVM>(SignU
             vm.register(vm.user)
         }
 
-        val country = listOf(From("Kyrgyzstan"), From("Turkey"), From("Kazakhstan"))
         ui.tvCountry.setOnClickListener {
-            SearchActivity.show(this, country.map { Option(it, it.description) })
+            SearchActivity.show(this, vm.getCountries().map { Option(From(it), it) })
         }
 
-        val nativeLanguage =
-            listOf(NativeLanguage("Kyrgyz"), NativeLanguage("Turkish"), NativeLanguage("Kazak"))
         ui.tvLanguage.setOnClickListener {
-            SearchActivity.show(this, nativeLanguage.map { Option(it, it.description) })
+            SearchActivity.show(this, vm.getLanguages().map { Option(NativeLanguage(it), it) })
         }
 
-        val learningLanguage = listOf(
-            LearningLanguage("Kyrgyz"),
-            LearningLanguage("Turkish"),
-            LearningLanguage("Kazak")
-        )
         ui.tvLearnLanguage.setOnClickListener {
-            SearchActivity.show(this, learningLanguage.map { Option(it, it.description) })
+            SearchActivity.show(this, vm.getLanguages().map { Option(LearningLanguage(it), it) })
         }
     }
 
@@ -80,21 +76,34 @@ class StepThreeFragment : BaseFragment<FragmentStepThreeBinding, SignUpVM>(SignU
         val item = Parcels.unwrap<Any>(data?.getParcelableExtra(SearchActivity.SELECTED_ITEM))
         data?.let {
             when (item) {
-                is From -> {
-                    initSubText(ui.tvCountry, item.description)
-                    vm.user.from = item.description
-                }
-                is NativeLanguage -> {
-                    initSubText(ui.tvLanguage, item.description)
-                    vm.user.nativeLang = item.description
-                }
-                is LearningLanguage -> {
-                    initSubText(ui.tvLearnLanguage, item.description)
-                    vm.user.learningLang = item.description
-                }
+                is From -> initFrom(item)
+                is NativeLanguage -> initNativeLang(item)
+                is LearningLanguage -> initLearnLang(item)
+                else -> {}
             }
         }
         toggleButtonState()
+    }
+
+    private fun initFrom(item: From) {
+        initSubText(ui.tvCountry, item.description)
+        vm.user.from = item.description
+        ui.imgFlag.apply {
+            apply {
+                visible()
+                setImageByName("ic_${item.description.toLowerCase()}")
+            }
+        }
+    }
+
+    private fun initNativeLang(item: NativeLanguage) {
+        initSubText(ui.tvLanguage, item.description)
+        vm.user.nativeLang = item.description
+    }
+
+    private fun initLearnLang(item: LearningLanguage) {
+        initSubText(ui.tvLearnLanguage, item.description)
+        vm.user.learningLang = item.description
     }
 
     private fun initSubText(view: TextView, description: String) {

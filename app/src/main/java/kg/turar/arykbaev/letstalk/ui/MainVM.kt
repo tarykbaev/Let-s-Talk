@@ -2,6 +2,7 @@ package kg.turar.arykbaev.letstalk.ui
 
 import com.firebase.ui.database.FirebaseRecyclerOptions
 import kg.turar.arykbaev.letstalk.data.repository.AuthAppRepository
+import kg.turar.arykbaev.letstalk.domain.UserState
 import kg.turar.arykbaev.letstalk.domain.models.User
 import kg.turar.arykbaev.letstalk.ui.base.BaseVM
 import javax.inject.Inject
@@ -28,5 +29,9 @@ class MainVM @Inject constructor(private val repository: AuthAppRepository) : Ba
 
     fun getRecyclerOptions(): FirebaseRecyclerOptions<User> {
         return repository.getRecyclerOptions()
+    }
+
+    fun changeUserState(state: UserState) {
+        repository.changeUserState(state)
     }
 }

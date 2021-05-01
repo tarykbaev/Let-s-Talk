@@ -80,8 +80,11 @@ class AuthAppRepository @Inject constructor(
     fun login(email: String, password: String) {
         mAuth.signInWithEmailAndPassword(email, password)
             .addOnSuccessListener {
-                when (mAuth.currentUser?.isEmailVerified) {
-                    true -> event.value = Event.Success()
+                when (isValidUser) {
+                    true -> {
+                        event.value = Event.Success()
+                        changeUserState(UserState.ONLINE)
+                    }
                     else -> event.value = Event.Notification("Please, Verify your email")
                 }
             }
@@ -91,11 +94,12 @@ class AuthAppRepository @Inject constructor(
     }
 
     fun logout() {
+        changeUserState(UserState.OFFLINE)
         mAuth.signOut()
     }
 
     fun checkAuthentication() {
-        when (mAuth.currentUser != null && mAuth.currentUser?.isEmailVerified == true) {
+        when (isValidUser) {
             true -> event.value = Event.Notification("Welcome!")
             else -> event.value = Event.Unauthorized()
         }
@@ -129,4 +133,11 @@ class AuthAppRepository @Inject constructor(
             .setQuery(refUsers, User::class.java)
             .build()
     }
+
+    fun changeUserState(state: UserState) {
+        if (isValidUser) refDatabaseRoot.child(NODE_USERS).child(uid).child(CHILD_STATE).setValue(state.state)
+    }
+
+    private val isValidUser: Boolean
+        get() = mAuth.currentUser != null && mAuth.currentUser?.isEmailVerified == true
 }
