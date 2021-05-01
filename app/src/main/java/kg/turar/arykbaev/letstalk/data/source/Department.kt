@@ -1,0 +1,40 @@
+package kg.turar.arykbaev.letstalk.data.source
+
+object Department {
+    val departments = listOf(
+        "Western Languages",
+        "Eastern Languages",
+        "Educational Science",
+        "Philosophy",
+        "Sociology",
+        "History",
+        "Turkology",
+        "Translations",
+        "Mathematics",
+        "Applied Mathematics and Informatics",
+        "Biology",
+        "Fine Arts",
+        "Communication",
+        "Theology",
+        "Economics and Management",
+        "Chemical Engineering",
+        "Computer Engineering",
+        "Environmental Engineering",
+        "Food Engineering",
+        "Electric and Electronics Engineering",
+        "Industrial Engineering",
+        "Veterinary",
+        "Department of Horticulture",
+        "Department of Crop Protection",
+        "Department of Animal Science",
+        "Physical Education",
+        "Coaching Education",
+        "Tourism and Hotel Managemen",
+        "Travel Business and Tourism Guidanс",
+        "Restaurant Management",
+        "Language Instruction",
+        "Foreing Languages",
+        "Economics and Administration Programs",
+        "Technical Programs"
+    )
+}

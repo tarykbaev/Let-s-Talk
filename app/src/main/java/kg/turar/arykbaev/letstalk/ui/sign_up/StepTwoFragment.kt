@@ -64,13 +64,11 @@ class StepTwoFragment : BaseFragment<FragmentStepTwoBinding, SignUpVM>(SignUpVM:
     private fun setupViews() {
         if (vm.user.uri != null) ui.imgPerson.setImageURI(vm.user.uri)
 
-        val department = listOf(Department("Computer eng"), Department("Chemistry"))
         ui.inputDepartment.setOnClickListener {
-            SearchActivity.show(this, department.map { Option(it, it.description) })
+            SearchActivity.show(this, vm.getDepartments().map { Option(Department(it), it) })
         }
-        val grades = listOf(Grade("0"), Grade("I"), Grade("II"), Grade("III"), Grade("IV"))
         ui.inputClass.setOnClickListener {
-            SearchActivity.show(this, grades.map { Option(it, it.description) })
+            SearchActivity.show(this, vm.getGrades().map { Option(Grade(it), it) })
         }
         ui.btnNext.setOnClickListener {
             navigateTo(StepTwoFragmentDirections.toStepThreeFragment(vm.user))

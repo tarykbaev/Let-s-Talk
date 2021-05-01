@@ -1,6 +1,6 @@
 package kg.turar.arykbaev.letstalk.data.source
 
-object Languages {
+object Language {
     val languages = listOf(
         "English",
         "Kyrgyz",

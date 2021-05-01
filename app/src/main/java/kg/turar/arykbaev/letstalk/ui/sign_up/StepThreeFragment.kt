@@ -2,14 +2,12 @@ package kg.turar.arykbaev.letstalk.ui.sign_up
 
 import android.content.Intent
 import android.os.Bundle
-import android.util.EventLog
 import android.view.View
 import android.widget.TextView
 import androidx.core.content.ContextCompat
 import androidx.navigation.fragment.navArgs
 import kg.turar.arykbaev.letstalk.App
 import kg.turar.arykbaev.letstalk.R
-import kg.turar.arykbaev.letstalk.data.source.Countries
 import kg.turar.arykbaev.letstalk.databinding.FragmentStepThreeBinding
 import kg.turar.arykbaev.letstalk.domain.Event
 import kg.turar.arykbaev.letstalk.extension.setImageByName
@@ -23,7 +21,6 @@ import kg.turar.arykbaev.letstalk.ui.base.BaseFragment
 import kg.turar.arykbaev.letstalk.ui.search_activity.Option
 import kg.turar.arykbaev.letstalk.ui.search_activity.SearchActivity
 import org.parceler.Parcels
-import java.util.*
 
 
 class StepThreeFragment : BaseFragment<FragmentStepThreeBinding, SignUpVM>(SignUpVM::class.java) {

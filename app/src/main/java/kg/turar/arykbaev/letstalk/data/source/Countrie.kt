@@ -1,6 +1,6 @@
 package kg.turar.arykbaev.letstalk.data.source
 
-object Countries {
+object Countrie {
     val countries = listOf(
         "Afghanistan",
         "Albania",
