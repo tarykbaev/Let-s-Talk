@@ -6,11 +6,13 @@ import kg.turar.arykbaev.letstalk.App
 import kg.turar.arykbaev.letstalk.R
 import kg.turar.arykbaev.letstalk.databinding.FragmentChatBinding
 import kg.turar.arykbaev.letstalk.domain.Event
+import kg.turar.arykbaev.letstalk.domain.models.User
 import kg.turar.arykbaev.letstalk.extension.showWarningSnackbar
+import kg.turar.arykbaev.letstalk.ui.MainVM
 import kg.turar.arykbaev.letstalk.ui.base.BaseFragment
 
 
-class ChatFragment : BaseFragment<FragmentChatBinding, ChatVM>(ChatVM::class.java) {
+class ChatFragment : BaseFragment<FragmentChatBinding, MainVM>(MainVM::class.java) {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         (activity?.application as App).appComponent.inject(this)
@@ -29,7 +31,8 @@ class ChatFragment : BaseFragment<FragmentChatBinding, ChatVM>(ChatVM::class.jav
         vm.event.observe(viewLifecycleOwner, {
             when(it) {
                 is Event.Notification -> showWarningSnackbar(it.message)
-                is Event.Success -> navigate(R.id.action_chat_fragment_to_login_fragment)
+                is Event.Unauthorized -> navigate(R.id.action_chat_fragment_to_login_fragment)
+                is Event.Success -> vm.currentUser = it.data as User
             }
         })
     }

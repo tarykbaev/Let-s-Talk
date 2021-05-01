@@ -56,6 +56,7 @@ dependencies {
     implementation deps.firebase.auth
     implementation deps.firebase.database
     implementation deps.firebase.firestore
+    implementation 'com.firebaseui:firebase-ui-database:7.1.1'
 
     implementation deps.circleimageview
 
@@ -66,6 +67,7 @@ dependencies {
     kapt deps.dagger.daggerCompiler
 
     api 'com.theartofdev.edmodo:android-image-cropper:2.8.0'
+    implementation deps.glide
 
     testImplementation deps.test.junit
     androidTestImplementation deps.test.androidJunit
