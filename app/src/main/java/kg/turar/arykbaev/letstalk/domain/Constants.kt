@@ -12,5 +12,6 @@ const val CHILD_IMAGE_URL = "image_url"
 const val CHILD_FROM = "from"
 const val CHILD_NATIVE_LANG = "nativeLang"
 const val CHILD_LEARN_LANG = "learningLang"
+const val CHILD_STATE = "state"
 
 const val FOLDER_PROFILE_IMAGE = "profile_image"

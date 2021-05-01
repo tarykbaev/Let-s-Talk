@@ -6,5 +6,5 @@ import kg.turar.arykbaev.letstalk.di.viewmodel.VMModule
 import javax.inject.Singleton
 
 @Singleton
-@Component(modules = [VMFactoryModule::class, VMModule::class, ApplicationModule::class])
+@Component(modules = [VMFactoryModule::class, VMModule::class, ApplicationModule::class, FirebaseModule::class])
 interface AppComponent : ScreenInjector
