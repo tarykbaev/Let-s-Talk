@@ -4,6 +4,7 @@ import kg.turar.arykbaev.letstalk.App
 import kg.turar.arykbaev.letstalk.ui.MainActivity
 import kg.turar.arykbaev.letstalk.ui.chat.ChatFragment
 import kg.turar.arykbaev.letstalk.ui.login.LoginFragment
+import kg.turar.arykbaev.letstalk.ui.message.MessageFragment
 import kg.turar.arykbaev.letstalk.ui.person.PersonFragment
 import kg.turar.arykbaev.letstalk.ui.search.SearchFragment
 import kg.turar.arykbaev.letstalk.ui.sign_up.StepOneFragment
@@ -22,4 +23,5 @@ interface ScreenInjector {
     fun inject(fragment: StepTwoFragment)
     fun inject(fragment: StepThreeFragment)
     fun inject(fragment: VerifyMailFragment)
+    fun inject(fragment: MessageFragment)
 }

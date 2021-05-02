@@ -9,6 +9,7 @@ import androidx.navigation.fragment.navArgs
 import com.theartofdev.edmodo.cropper.CropImage
 import kg.turar.arykbaev.letstalk.App
 import kg.turar.arykbaev.letstalk.databinding.FragmentStepTwoBinding
+import kg.turar.arykbaev.letstalk.domain.Gender
 import kg.turar.arykbaev.letstalk.model.Department
 import kg.turar.arykbaev.letstalk.model.Grade
 import kg.turar.arykbaev.letstalk.ui.MainActivity
@@ -83,15 +84,15 @@ class StepTwoFragment : BaseFragment<FragmentStepTwoBinding, SignUpVM>(SignUpVM:
 
         ui.rgGender.setOnCheckedChangeListener { _, checkedId ->
             when(checkedId) {
-                ui.rbFemale.id -> setGender(FEMALE)
-                ui.rbMale.id -> setGender(MALE)
+                ui.rbFemale.id -> setGender(Gender.FEMALE)
+                ui.rbMale.id -> setGender(Gender.MALE)
             }
             toggleButtonState()
         }
     }
 
-    private fun setGender(gender: String) {
-        vm.user.gender = gender
+    private fun setGender(gender: Gender) {
+        vm.user.gender = gender.gender
     }
 
     private fun toggleButtonState() {
@@ -99,9 +100,4 @@ class StepTwoFragment : BaseFragment<FragmentStepTwoBinding, SignUpVM>(SignUpVM:
     }
 
     override fun performViewBinding() = FragmentStepTwoBinding.inflate(layoutInflater)
-
-    companion object {
-        private const val FEMALE = "female"
-        private const val MALE = "male"
-    }
 }

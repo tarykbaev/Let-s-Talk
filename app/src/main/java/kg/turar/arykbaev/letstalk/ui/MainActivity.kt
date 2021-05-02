@@ -33,23 +33,20 @@ class MainActivity : BaseActivity<ActivityMainBinding, MainVM>(MainVM::class.jav
         navController = Navigation.findNavController(this, R.id.fragment)
 
         navController.addOnDestinationChangedListener { _, destination, _ ->
-            when (getHideFragments.contains(destination.id)) {
-                true -> ui.bottomNav.gone()
-                else -> ui.bottomNav.visible()
+            when (bottomNavFragments.contains(destination.id)) {
+                true -> ui.bottomNav.visible()
+                else -> ui.bottomNav.gone()
             }
         }
 
         ui.bottomNav.setupWithNavController(navController)
     }
 
-    private val getHideFragments: List<Int>
+    private val bottomNavFragments: List<Int>
         get() = listOf(
-            R.id.login_fragment,
-            R.id.stepOneFragment,
-            R.id.stepTwoFragment,
-            R.id.stepThreeFragment,
-            R.id.verifyMailFragment,
-            R.id.messageFragment
+            R.id.chat_fragment,
+            R.id.search_fragment,
+            R.id.profile_fragment
         )
 
     override fun performBinding() = ActivityMainBinding.inflate(layoutInflater)

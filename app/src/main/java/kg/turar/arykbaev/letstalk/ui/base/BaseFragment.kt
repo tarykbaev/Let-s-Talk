@@ -10,6 +10,7 @@ import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.NavDirections
 import androidx.navigation.fragment.findNavController
 import androidx.viewbinding.ViewBinding
+import kg.turar.arykbaev.letstalk.extension.hideKeyboard
 import javax.inject.Inject
 
 abstract class BaseFragment<DataBinding : ViewBinding, ViewModel : BaseVM>
@@ -38,6 +39,11 @@ abstract class BaseFragment<DataBinding : ViewBinding, ViewModel : BaseVM>
     fun navigateTo(navDirections: NavDirections) = findNavController().navigate(navDirections)
 
     fun navigate(@IdRes idRes: Int) = findNavController().navigate(idRes)
+
+    override fun onStop() {
+        super.onStop()
+        hideKeyboard()
+    }
 
     override fun onDestroyView() {
         super.onDestroyView()

@@ -29,6 +29,6 @@ class SearchFragment : BaseFragment<FragmentSearchBinding, MainVM>(MainVM::class
     override fun performViewBinding() = FragmentSearchBinding.inflate(layoutInflater)
 
     override fun onUserClick(user: User) {
-        Log.d("SearchFragment", "onUserClick: ${user.name}")
+        navigateTo(SearchFragmentDirections.toMessageFragment(user))
     }
 }
