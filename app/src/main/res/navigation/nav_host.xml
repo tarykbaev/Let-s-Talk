@@ -108,7 +108,7 @@
     </fragment>
     <fragment
         android:id="@+id/pictureFragment"
-        android:name="kg.turar.arykbaev.letstalk.ui.picture.PictureFragment"
+        android:name="kg.turar.arykbaev.letstalk.ui.person_info.PictureFragment"
         android:label="PictureFragment">
         <argument
             android:name="user"

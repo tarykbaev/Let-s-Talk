@@ -1,4 +1,4 @@
-package kg.turar.arykbaev.letstalk.ui.picture
+package kg.turar.arykbaev.letstalk.ui.person_info
 
 import android.os.Bundle
 import android.view.LayoutInflater

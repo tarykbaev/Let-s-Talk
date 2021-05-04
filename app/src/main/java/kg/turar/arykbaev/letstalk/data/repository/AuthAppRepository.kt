@@ -1,5 +1,6 @@
 package kg.turar.arykbaev.letstalk.data.repository
 
+import android.util.Log
 import androidx.lifecycle.MutableLiveData
 import com.firebase.ui.database.FirebaseRecyclerOptions
 import com.google.firebase.auth.FirebaseAuth
@@ -43,6 +44,7 @@ class AuthAppRepository @Inject constructor(
 
     private fun getDateMap(user: User): Map<String, Any> {
         val dateMap = mutableMapOf<String, Any>()
+        dateMap[CHILD_ID] = uid
         dateMap[CHILD_NAME] = user.name
         dateMap[CHILD_EMAIL] = user.email
         dateMap[CHILD_DEPARTMENT] = user.department
@@ -136,6 +138,32 @@ class AuthAppRepository @Inject constructor(
 
     fun changeUserState(state: UserState) {
         if (isValidUser) refDatabaseRoot.child(NODE_USERS).child(uid).child(CHILD_STATE).setValue(state.state)
+    }
+
+    fun sendMessage(message: String, receiveUserId: String, type: String) {
+        val refDialogUser = "$NODE_MESSAGE/$uid/$receiveUserId"
+        val refDialogReceiveUser = "$NODE_MESSAGE/$receiveUserId/$uid"
+        val messageKey = refDatabaseRoot.child(refDialogUser).push().key
+
+        val mapMessage = hashMapOf<String, Any>()
+        mapMessage[CHILD_FROM_MESSAGE] = uid
+        mapMessage[CHILD_TYPE] = type
+        mapMessage[CHILD_TEXT] = message
+        mapMessage[CHILD_TIME] = ServerValue.TIMESTAMP
+
+        val mapDialog = hashMapOf<String, Any>()
+        mapDialog["$refDialogUser/$messageKey"] = mapMessage
+        mapDialog["$refDialogReceiveUser/$messageKey"] = mapMessage
+
+        refDatabaseRoot.updateChildren(mapDialog)
+            .addOnSuccessListener {
+                Log.d("sendMessage", "Success: ")
+                Log.d("sendMessage", refDialogUser)
+                Log.d("sendMessage", refDialogReceiveUser)
+            }
+            .addOnFailureListener {
+                Log.d("sendMessage", it.message.toString())
+            }
     }
 
     private val isValidUser: Boolean

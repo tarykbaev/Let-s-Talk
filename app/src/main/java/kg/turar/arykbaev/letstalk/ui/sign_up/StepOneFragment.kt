@@ -10,7 +10,7 @@ import kg.turar.arykbaev.letstalk.domain.Event
 import kg.turar.arykbaev.letstalk.domain.models.User
 import kg.turar.arykbaev.letstalk.extension.isValidEmail
 import kg.turar.arykbaev.letstalk.extension.showWarningSnackbar
-import kg.turar.arykbaev.letstalk.extension.toTextString
+import kg.turar.arykbaev.letstalk.extension.toText
 import kg.turar.arykbaev.letstalk.ui.base.BaseFragment
 
 
@@ -26,7 +26,7 @@ class StepOneFragment : BaseFragment<FragmentStepOneBinding, SignUpVM>(SignUpVM:
     private fun setupViews() {
         setupTextWatchers()
         ui.btnSignUp.setOnClickListener {
-            emailValidation(ui.inputEmail.toTextString())
+            emailValidation(ui.inputEmail.toText)
         }
     }
 
@@ -51,9 +51,9 @@ class StepOneFragment : BaseFragment<FragmentStepOneBinding, SignUpVM>(SignUpVM:
 
     private fun sendUser() {
         val user = User(
-            ui.inputName.toTextString(),
-            ui.inputEmail.toTextString(),
-            ui.inputPassword.toTextString()
+            ui.inputName.toText,
+            ui.inputEmail.toText,
+            ui.inputPassword.toText
         )
         navigateTo(StepOneFragmentDirections.toStepTwoFragment(user))
     }

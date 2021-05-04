@@ -11,6 +11,7 @@ import kg.turar.arykbaev.letstalk.databinding.FragmentMessageBinding
 import kg.turar.arykbaev.letstalk.domain.Event
 import kg.turar.arykbaev.letstalk.extension.invisible
 import kg.turar.arykbaev.letstalk.extension.setImageByUrl
+import kg.turar.arykbaev.letstalk.extension.toText
 import kg.turar.arykbaev.letstalk.extension.visible
 import kg.turar.arykbaev.letstalk.ui.base.BaseFragment
 
@@ -55,7 +56,13 @@ class MessageFragment : BaseFragment<FragmentMessageBinding, MessageVM>(MessageV
             tvName.text = vm.user.name
             tvState.text = vm.user.state
             ui.toolbarUser.setupWithNavController(findNavController())
+            imgSend.setOnClickListener { sendMessage() }
         }
+    }
+
+    private fun sendMessage() {
+        ui.inputSend.setText("")
+        vm.sendMessage(ui.inputSend.toText, vm.getUserId(), "text")
     }
 
     private fun toggleSendImage() {

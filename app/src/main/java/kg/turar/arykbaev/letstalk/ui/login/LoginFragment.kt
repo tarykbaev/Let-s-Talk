@@ -10,7 +10,7 @@ import kg.turar.arykbaev.letstalk.databinding.FragmentLoginBinding
 import kg.turar.arykbaev.letstalk.domain.Event
 import kg.turar.arykbaev.letstalk.extension.isValidEmail
 import kg.turar.arykbaev.letstalk.extension.showWarningSnackbar
-import kg.turar.arykbaev.letstalk.extension.toTextString
+import kg.turar.arykbaev.letstalk.extension.toText
 import kg.turar.arykbaev.letstalk.ui.base.BaseFragment
 
 
@@ -47,8 +47,8 @@ class LoginFragment : BaseFragment<FragmentLoginBinding, LoginVM>(LoginVM::class
     }
 
     private fun login() {
-        when(ui.inputEmail.toTextString().isValidEmail()) {
-            true -> vm.login(ui.inputEmail.toTextString(), ui.inputPassword.toTextString())
+        when(ui.inputEmail.toText.isValidEmail()) {
+            true -> vm.login(ui.inputEmail.toText, ui.inputPassword.toText)
             else -> showWarningSnackbar("Incorrect email address", ui.btnLogin)
         }
     }
