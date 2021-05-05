@@ -45,10 +45,9 @@ class MessageRepository @Inject constructor(
             }
     }
 
-    fun fetchMessage(receiveUserId: String) {
+    fun fetchMessage(receiveUserId: String, countMessage: Int) {
         val refMessages = refDatabaseRoot.child(NODE_MESSAGE).child(currentUserId).child(receiveUserId)
-
-        refMessages.limitToLast(10).addChildEventListener(AppChildEventListener {
+        refMessages.limitToLast(countMessage).addChildEventListener(AppChildEventListener {
             val messages = it.getValue(Message::class.java) ?: Message()
             message.value = messages.apply { isCurrent = from == currentUserId }
         })

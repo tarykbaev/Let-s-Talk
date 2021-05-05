@@ -16,6 +16,14 @@ class MessageAdapter(private val listener: Listener) : RecyclerView.Adapter<Recy
         }
     }
 
+    fun addItemToTop(message: Message) {
+        if (!items.contains(message)) {
+            items.add(message)
+            items.sortBy { it.timeStamp.toString() }
+            notifyItemInserted(0)
+        }
+    }
+
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): RecyclerView.ViewHolder {
         return MessageVH.create(parent, listener)
     }

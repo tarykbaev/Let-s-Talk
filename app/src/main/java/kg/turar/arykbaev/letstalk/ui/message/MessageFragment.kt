@@ -2,10 +2,13 @@ package kg.turar.arykbaev.letstalk.ui.message
 
 import android.os.Bundle
 import android.view.View
+import android.widget.AbsListView
 import androidx.core.widget.addTextChangedListener
 import androidx.navigation.fragment.findNavController
 import androidx.navigation.fragment.navArgs
 import androidx.navigation.ui.setupWithNavController
+import androidx.recyclerview.widget.LinearLayoutManager
+import androidx.recyclerview.widget.RecyclerView
 import kg.turar.arykbaev.letstalk.App
 import kg.turar.arykbaev.letstalk.databinding.FragmentMessageBinding
 import kg.turar.arykbaev.letstalk.domain.Event
@@ -22,6 +25,10 @@ class MessageFragment : BaseFragment<FragmentMessageBinding, MessageVM>(MessageV
 
     private val args: MessageFragmentArgs by navArgs()
     private lateinit var adapter: MessageAdapter
+    private lateinit var layoutManager: LinearLayoutManager
+    private var isScrolling = false
+    private var smoothScrollToPosition = true
+    private var countMessage = 20
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -48,12 +55,20 @@ class MessageFragment : BaseFragment<FragmentMessageBinding, MessageVM>(MessageV
             }
         })
         vm.message.observe(viewLifecycleOwner, {
-            adapter.addItemToBottom(it)
+            when (smoothScrollToPosition) {
+                true -> {
+                    adapter.addItemToBottom(it)
+                    ui.listMessage.smoothScrollToPosition(adapter.itemCount)
+                }
+                else -> adapter.addItemToTop(it)
+            }
+
         })
     }
 
     private fun setupViews() {
         adapter = MessageAdapter(this)
+        layoutManager = LinearLayoutManager(this.context)
         ui.apply {
             inputSend.addTextChangedListener { toggleSendImage() }
             imgPerson.apply {
@@ -65,11 +80,38 @@ class MessageFragment : BaseFragment<FragmentMessageBinding, MessageVM>(MessageV
             ui.toolbarUser.setupWithNavController(findNavController())
             imgSend.setOnClickListener { sendMessage() }
             listMessage.adapter = adapter
+            listMessage.setHasFixedSize(true)
+            listMessage.isNestedScrollingEnabled = false
+            listMessage.layoutManager = layoutManager
         }
-        vm.fetchMessage()
+        vm.fetchMessage(countMessage)
+        ui.listMessage.addOnScrollListener(object : RecyclerView.OnScrollListener() {
+
+            override fun onScrolled(recyclerView: RecyclerView, dx: Int, dy: Int) {
+                super.onScrolled(recyclerView, dx, dy)
+                if (isScrolling && dy < 0 && layoutManager.findFirstVisibleItemPosition() <= 3) {
+                    updateData()
+                }
+            }
+
+            override fun onScrollStateChanged(recyclerView: RecyclerView, newState: Int) {
+                super.onScrollStateChanged(recyclerView, newState)
+                if (newState == AbsListView.OnScrollListener.SCROLL_STATE_TOUCH_SCROLL) {
+                    isScrolling = true
+                }
+            }
+        })
+    }
+
+    private fun updateData() {
+        isScrolling = false
+        smoothScrollToPosition = false
+        countMessage += 20
+        vm.fetchMessage(countMessage)
     }
 
     private fun sendMessage() {
+        smoothScrollToPosition = true
         vm.sendMessage(ui.inputSend.toText, "text")
         ui.inputSend.setText("")
     }

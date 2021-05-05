@@ -19,7 +19,7 @@ class MessageVM @Inject constructor(
         messageRepository.sendMessage(message, user.id, type)
     }
 
-    fun fetchMessage() {
-        messageRepository.fetchMessage(user.id)
+    fun fetchMessage(countMessage: Int) {
+        messageRepository.fetchMessage(user.id, countMessage)
     }
 }
