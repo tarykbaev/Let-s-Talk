@@ -4,14 +4,18 @@ import android.view.LayoutInflater
 import android.view.ViewGroup
 import kg.turar.arykbaev.letstalk.databinding.ItemMessageBinding
 import kg.turar.arykbaev.letstalk.domain.models.Message
+import kg.turar.arykbaev.letstalk.extension.asTime
 import kg.turar.arykbaev.letstalk.ui.base.CoreVH
 
-class MessageVH(ui: ItemMessageBinding) : CoreVH<Message, ItemMessageBinding>(ui) {
+class MessageVH(private val ui: ItemMessageBinding) : CoreVH<Message, ItemMessageBinding>(ui) {
 
     private lateinit var message: Message
 
     override fun onBind(item: Message) {
         message = item
+        ui.apply {
+            tvMessageEnd.text = item.text
+        }
     }
 
     companion object {

@@ -9,10 +9,11 @@ class MessageAdapter(private val listener: Listener) : RecyclerView.Adapter<Recy
 
     private val items: MutableList<Message> = ArrayList()
 
-    fun updateList(list: List<Message>) {
-        items.clear()
-        items.addAll(list)
-        notifyDataSetChanged()
+    fun addItemToBottom(message: Message) {
+        if (!items.contains(message)) {
+            items.add(message)
+            notifyItemInserted(items.size)
+        }
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): RecyclerView.ViewHolder {

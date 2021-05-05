@@ -1,10 +1,13 @@
 package kg.turar.arykbaev.letstalk.data.repository
 
+import kg.turar.arykbaev.letstalk.domain.models.Message
 import android.util.Log
+import androidx.lifecycle.MutableLiveData
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.database.DatabaseReference
 import com.google.firebase.database.ServerValue
 import com.google.firebase.storage.StorageReference
+import kg.turar.arykbaev.letstalk.data.firebase.AppChildEventListener
 import kg.turar.arykbaev.letstalk.domain.*
 import javax.inject.Inject
 
@@ -14,6 +17,7 @@ class MessageRepository @Inject constructor(
     private val refStorageRoot: StorageReference
 ) {
 
+    var message = MutableLiveData<Message>()
 
     fun sendMessage(message: String, receiveUserId: String, type: String) {
         val refDialogUser = "$NODE_MESSAGE/$currentUserId/$receiveUserId"
@@ -39,6 +43,15 @@ class MessageRepository @Inject constructor(
             .addOnFailureListener {
                 Log.d("sendMessage", it.message.toString())
             }
+    }
+
+    fun fetchMessage(receiveUserId: String) {
+        val refMessages = refDatabaseRoot.child(NODE_MESSAGE).child(currentUserId).child(receiveUserId)
+
+        refMessages.limitToLast(10).addChildEventListener(AppChildEventListener {
+            val messages = it.getValue(Message::class.java) ?: Message()
+            message.value = messages
+        })
     }
 
     private val currentUserId: String

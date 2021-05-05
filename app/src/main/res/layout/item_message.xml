@@ -4,15 +4,29 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:padding="@dimen/padding_16dp">
+    android:layout_marginTop="@dimen/padding_8dp"
+    android:layout_marginEnd="@dimen/padding_16dp">
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/guideline_start"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        app:layout_constraintGuide_percent="0.1" />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/guideline_end"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        app:layout_constraintGuide_percent="0.9" />
 
     <androidx.constraintlayout.widget.ConstraintLayout
-        android:layout_width="match_parent"
+        android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:layout_marginEnd="@dimen/padding_32dp"
-        android:background="@drawable/message_background_start"
         android:padding="@dimen/padding_8dp"
         android:visibility="gone"
+        app:layout_constraintEnd_toStartOf="@id/guideline_end"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent">
 
@@ -20,51 +34,33 @@
             android:id="@+id/tv_message"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
+            android:background="@drawable/message_background_start"
             app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toStartOf="@id/tv_time"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
             tools:text="Dasdo you wanadfja;dfffja;dfja;dfja dfajdf hla djfhaadfja dfaldf jadfj adjf adfj a;dkjf;adkfja ;dfj;alsdkf jaldskfj a;dfj a;dffdsaf ad fadf" />
-
-        <TextView
-            android:id="@+id/tv_time"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:textSize="@dimen/text_14sp"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            tools:text="17:00" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 
 
     <androidx.constraintlayout.widget.ConstraintLayout
-        android:layout_width="match_parent"
+        android:id="@+id/cl_container_end"
+        android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:layout_marginStart="@dimen/padding_32dp"
-        android:background="@drawable/message_background_end"
-        android:padding="@dimen/padding_8dp"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="@+id/guideline_start"
         app:layout_constraintTop_toTopOf="parent">
 
         <TextView
-            android:id="@+id/tv_message_start"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toStartOf="@id/tv_time_end"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            tools:text="Dasdo you wanadfja;dfffja;dfja;dfja dfajdf hla djfhaadfja dfaldf jadfj adjf adfj a;dkjf;adkfja ;dfj;alsdkf jaldskfj a;dfj a;dffdsaf ad fadf" />
-
-        <TextView
-            android:id="@+id/tv_time_end"
+            android:id="@+id/tv_message_end"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:textSize="@dimen/text_14sp"
+            android:background="@drawable/message_background_end"
+            android:padding="@dimen/padding_8dp"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
-            tools:text="17:00" />
+            app:layout_constraintTop_toTopOf="parent"
+            tools:text="Dag sfg df sf sdfsdasdf ad sdf asdfa dfadsf adfsf asdf ad f adfadf adfasdf asdf adsfa dfads ffffffj dfajdf " />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 
