@@ -4,8 +4,10 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:layout_marginTop="@dimen/padding_8dp"
-    android:layout_marginEnd="@dimen/padding_16dp">
+    android:layout_marginStart="@dimen/padding_16dp"
+    android:layout_marginTop="@dimen/padding_4dp"
+    android:layout_marginEnd="@dimen/padding_16dp"
+    android:layout_marginBottom="@dimen/padding_4dp">
 
     <androidx.constraintlayout.widget.Guideline
         android:id="@+id/guideline_start"
@@ -22,10 +24,9 @@
         app:layout_constraintGuide_percent="0.9" />
 
     <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/cl_container_start"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:padding="@dimen/padding_8dp"
-        android:visibility="gone"
         app:layout_constraintEnd_toStartOf="@id/guideline_end"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent">
@@ -35,6 +36,7 @@
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:background="@drawable/message_background_start"
+            android:padding="@dimen/padding_8dp"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"

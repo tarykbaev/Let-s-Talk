@@ -50,7 +50,7 @@ class MessageRepository @Inject constructor(
 
         refMessages.limitToLast(10).addChildEventListener(AppChildEventListener {
             val messages = it.getValue(Message::class.java) ?: Message()
-            message.value = messages
+            message.value = messages.apply { isCurrent = from == currentUserId }
         })
     }
 

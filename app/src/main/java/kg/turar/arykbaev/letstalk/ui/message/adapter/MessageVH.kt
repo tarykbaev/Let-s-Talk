@@ -5,6 +5,8 @@ import android.view.ViewGroup
 import kg.turar.arykbaev.letstalk.databinding.ItemMessageBinding
 import kg.turar.arykbaev.letstalk.domain.models.Message
 import kg.turar.arykbaev.letstalk.extension.asTime
+import kg.turar.arykbaev.letstalk.extension.gone
+import kg.turar.arykbaev.letstalk.extension.visible
 import kg.turar.arykbaev.letstalk.ui.base.CoreVH
 
 class MessageVH(private val ui: ItemMessageBinding) : CoreVH<Message, ItemMessageBinding>(ui) {
@@ -14,7 +16,15 @@ class MessageVH(private val ui: ItemMessageBinding) : CoreVH<Message, ItemMessag
     override fun onBind(item: Message) {
         message = item
         ui.apply {
-            tvMessageEnd.text = item.text
+            if (message.isCurrent) {
+                clContainerStart.gone()
+                clContainerEnd.visible()
+                tvMessageEnd.text = item.text
+            } else {
+                clContainerStart.visible()
+                clContainerEnd.gone()
+                tvMessage.text = item.text
+            }
         }
     }
 
