@@ -32,5 +32,6 @@ abstract class VMModule {
     @Binds
     @IntoMap
     @VMKey(MessageVM::class)
+    @Singleton
     abstract fun bindMessageVM(messageVM: MessageVM): ViewModel
 }

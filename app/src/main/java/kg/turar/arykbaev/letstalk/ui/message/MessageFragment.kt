@@ -123,8 +123,7 @@ class MessageFragment : BaseFragment<FragmentMessageBinding, MessageVM>(MessageV
     }
 
     override fun onMessageClick(message: Message) {
-        println("++++++++++++++++++++++++++++++++++++++++++++++++++++++++")
-        println(message)
+        navigateTo(MessageFragmentDirections.toCorrectionFragment(message))
     }
 
     override fun performViewBinding() = FragmentMessageBinding.inflate(layoutInflater)

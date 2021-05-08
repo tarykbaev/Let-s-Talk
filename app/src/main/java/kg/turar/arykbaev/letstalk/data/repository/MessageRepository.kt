@@ -36,12 +36,8 @@ class MessageRepository @Inject constructor(
 
         refDatabaseRoot.updateChildren(mapDialog)
             .addOnSuccessListener {
-                Log.d("sendMessage", "Success: ")
-                Log.d("sendMessage", refDialogUser)
-                Log.d("sendMessage", refDialogReceiveUser)
             }
             .addOnFailureListener {
-                Log.d("sendMessage", it.message.toString())
             }
     }
 

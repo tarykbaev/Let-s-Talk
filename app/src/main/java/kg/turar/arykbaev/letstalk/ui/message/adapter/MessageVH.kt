@@ -2,6 +2,7 @@ package kg.turar.arykbaev.letstalk.ui.message.adapter
 
 import android.view.LayoutInflater
 import android.view.ViewGroup
+import androidx.core.text.parseAsHtml
 import kg.turar.arykbaev.letstalk.databinding.ItemMessageBinding
 import kg.turar.arykbaev.letstalk.domain.models.Message
 import kg.turar.arykbaev.letstalk.extension.asTime
@@ -19,11 +20,11 @@ class MessageVH(private val ui: ItemMessageBinding) : CoreVH<Message, ItemMessag
             if (message.isCurrent) {
                 clContainerStart.gone()
                 clContainerEnd.visible()
-                tvMessageEnd.text = item.text
+                tvMessageEnd.text = item.text.parseAsHtml()
             } else {
                 clContainerStart.visible()
                 clContainerEnd.gone()
-                tvMessage.text = item.text
+                tvMessage.text = item.text.parseAsHtml()
             }
         }
     }

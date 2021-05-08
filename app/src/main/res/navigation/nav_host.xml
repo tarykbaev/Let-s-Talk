@@ -105,6 +105,9 @@
         <action
             android:id="@+id/toPictureFragment"
             app:destination="@id/pictureFragment" />
+        <action
+            android:id="@+id/toCorrectionFragment"
+            app:destination="@id/correctionFragment" />
     </fragment>
     <fragment
         android:id="@+id/pictureFragment"
@@ -113,6 +116,14 @@
         <argument
             android:name="user"
             app:argType="kg.turar.arykbaev.letstalk.domain.models.User" />
+    </fragment>
+    <fragment
+        android:id="@+id/correctionFragment"
+        android:name="kg.turar.arykbaev.letstalk.ui.message.CorrectionFragment"
+        android:label="Correct Sentences" >
+        <argument
+            android:name="message"
+            app:argType="kg.turar.arykbaev.letstalk.domain.models.Message" />
     </fragment>
 
 </navigation>
