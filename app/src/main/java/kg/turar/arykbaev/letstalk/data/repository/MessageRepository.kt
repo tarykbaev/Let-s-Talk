@@ -19,6 +19,7 @@ class MessageRepository @Inject constructor(
 
     var message = MutableLiveData<Message>()
     private val appChildEventListener: AppChildEventListener
+    val event: MutableLiveData<Event> = MutableLiveData()
 
     init {
         appChildEventListener = AppChildEventListener {
@@ -27,8 +28,7 @@ class MessageRepository @Inject constructor(
         }
     }
 
-
-    fun sendMessage(message: String, receiveUserId: String, type: String) {
+    fun sendMessage(message: String, receiveUserId: String, type: String, isCorrected: Boolean) {
         val refDialogUser = "$NODE_MESSAGE/$currentUserId/$receiveUserId"
         val refDialogReceiveUser = "$NODE_MESSAGE/$receiveUserId/$currentUserId"
         val messageKey = refDatabaseRoot.child(refDialogUser).push().key
@@ -38,6 +38,7 @@ class MessageRepository @Inject constructor(
         mapMessage[CHILD_TYPE] = type
         mapMessage[CHILD_TEXT] = message
         mapMessage[CHILD_TIME] = ServerValue.TIMESTAMP
+        mapMessage[CHILD_CORRECTED] = isCorrected
 
         val mapDialog = hashMapOf<String, Any>()
         mapDialog["$refDialogUser/$messageKey"] = mapMessage
@@ -45,8 +46,10 @@ class MessageRepository @Inject constructor(
 
         refDatabaseRoot.updateChildren(mapDialog)
             .addOnSuccessListener {
+                event.value = Event.Success()
             }
             .addOnFailureListener {
+                event.value = Event.Notification("Oops, something went wrong!")
             }
     }
 

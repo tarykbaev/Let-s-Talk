@@ -9,5 +9,6 @@ data class Message(
     var type: String = "",
     var from: String = "",
     var timeStamp: Long = 0,
-    var isCurrent: Boolean = false
+    var isCurrent: Boolean = false,
+    var isCorrected: Boolean = false
 ): Parcelable

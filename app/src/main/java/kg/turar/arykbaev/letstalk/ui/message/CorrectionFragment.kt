@@ -14,10 +14,7 @@ import kg.turar.arykbaev.letstalk.App
 import kg.turar.arykbaev.letstalk.R
 import kg.turar.arykbaev.letstalk.databinding.FragmentCorrectionBinding
 import kg.turar.arykbaev.letstalk.domain.Event
-import kg.turar.arykbaev.letstalk.extension.hideKeyboard
-import kg.turar.arykbaev.letstalk.extension.invisible
-import kg.turar.arykbaev.letstalk.extension.toText
-import kg.turar.arykbaev.letstalk.extension.visible
+import kg.turar.arykbaev.letstalk.extension.*
 import kg.turar.arykbaev.letstalk.ui.base.BaseFragment
 import java.lang.StringBuilder
 
@@ -46,10 +43,8 @@ class CorrectionFragment : BaseFragment<FragmentCorrectionBinding, MessageVM>(Me
     private fun subscribeToLiveData() {
         vm.event.observe(viewLifecycleOwner, {
             when (it) {
-                is Event.Notification -> {
-                }
-                is Event.Success -> {
-                }
+                is Event.Notification -> showWarningSnackbar(it.message)
+                is Event.Success -> findNavController().navigateUp()
             }
         })
     }
@@ -116,8 +111,7 @@ class CorrectionFragment : BaseFragment<FragmentCorrectionBinding, MessageVM>(Me
 
     private fun sendMessage() {
         val message = "$mainText <br> $correctText"
-        vm.sendMessage(message, "text")
-        findNavController().navigateUp()
+        vm.sendMessage(message, "text", true)
     }
 
     private fun correction() {

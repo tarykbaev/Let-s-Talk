@@ -135,13 +135,15 @@ class MessageFragment : BaseFragment<FragmentMessageBinding, MessageVM>(MessageV
 
     private fun toggleSendImage() {
         ui.apply {
-            if (inputSend.text.isNotBlank()) imgSend.visible() else imgSend.invisible()
+            if (inputSend.text.isNotEmpty() && inputSend.text.isNotBlank()) imgSend.visible() else imgSend.invisible()
         }
     }
 
     override fun onMessageClick(message: Message) {
-        vm.clearMessage()
-        navigateTo(MessageFragmentDirections.toCorrectionFragment(message, vm.user))
+        if (!message.isCurrent && !message.isCorrected) {
+            vm.clearMessage()
+            navigateTo(MessageFragmentDirections.toCorrectionFragment(message, vm.user))
+        }
     }
 
     override fun performViewBinding() = FragmentMessageBinding.inflate(layoutInflater)

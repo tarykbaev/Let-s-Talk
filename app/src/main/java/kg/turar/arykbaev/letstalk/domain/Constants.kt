@@ -19,6 +19,7 @@ const val CHILD_TEXT = "text"
 const val CHILD_TYPE = "type"
 const val CHILD_FROM_MESSAGE = "from"
 const val CHILD_TIME = "timeStamp"
+const val CHILD_CORRECTED = "corrected"
 
 
 const val FOLDER_PROFILE_IMAGE = "profile_image"

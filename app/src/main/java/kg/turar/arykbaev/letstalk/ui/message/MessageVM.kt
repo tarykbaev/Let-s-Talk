@@ -12,14 +12,18 @@ class MessageVM @Inject constructor(
     private val messageRepository: MessageRepository
 ) : BaseVM() {
 
+    init {
+        event = messageRepository.event
+    }
+
     lateinit var user: User
     val message: MutableLiveData<Message> = messageRepository.message
     lateinit var correctionMessage: Message
 
     fun getMessageText(): String = correctionMessage.text
 
-    fun sendMessage(message: String, type: String) {
-        messageRepository.sendMessage(message, user.id, type)
+    fun sendMessage(message: String, type: String, isCorrected: Boolean = false) {
+        messageRepository.sendMessage(message, user.id, type, isCorrected)
     }
 
     fun fetchMessage(countMessage: Int) {
