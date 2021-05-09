@@ -18,6 +18,15 @@ class MessageRepository @Inject constructor(
 ) {
 
     var message = MutableLiveData<Message>()
+    private val appChildEventListener: AppChildEventListener
+
+    init {
+        appChildEventListener = AppChildEventListener {
+            val messages = it.getValue(Message::class.java) ?: Message()
+            message.value = messages.apply { isCurrent = from == currentUserId }
+        }
+    }
+
 
     fun sendMessage(message: String, receiveUserId: String, type: String) {
         val refDialogUser = "$NODE_MESSAGE/$currentUserId/$receiveUserId"
@@ -43,10 +52,8 @@ class MessageRepository @Inject constructor(
 
     fun fetchMessage(receiveUserId: String, countMessage: Int) {
         val refMessages = refDatabaseRoot.child(NODE_MESSAGE).child(currentUserId).child(receiveUserId)
-        refMessages.limitToLast(countMessage).addChildEventListener(AppChildEventListener {
-            val messages = it.getValue(Message::class.java) ?: Message()
-            message.value = messages.apply { isCurrent = from == currentUserId }
-        })
+        refMessages.removeEventListener(appChildEventListener)
+        refMessages.limitToLast(countMessage).addChildEventListener(appChildEventListener)
     }
 
     private val currentUserId: String

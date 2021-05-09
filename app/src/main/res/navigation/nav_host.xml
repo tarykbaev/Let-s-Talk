@@ -124,6 +124,9 @@
         <argument
             android:name="message"
             app:argType="kg.turar.arykbaev.letstalk.domain.models.Message" />
+        <argument
+            android:name="user"
+            app:argType="kg.turar.arykbaev.letstalk.domain.models.User" />
     </fragment>
 
 </navigation>

@@ -19,7 +19,7 @@ class MessageAdapter(private val listener: Listener) : RecyclerView.Adapter<Recy
     fun addItemToTop(message: Message) {
         if (!items.contains(message)) {
             items.add(message)
-            items.sortBy { it.timeStamp.toString() }
+            items.sortBy { it.timeStamp }
             notifyItemInserted(0)
         }
     }

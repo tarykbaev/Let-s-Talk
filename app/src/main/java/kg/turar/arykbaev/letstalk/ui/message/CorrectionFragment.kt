@@ -22,8 +22,7 @@ import kg.turar.arykbaev.letstalk.ui.base.BaseFragment
 import java.lang.StringBuilder
 
 
-class CorrectionFragment :
-    BaseFragment<FragmentCorrectionBinding, MessageVM>(MessageVM::class.java) {
+class CorrectionFragment : BaseFragment<FragmentCorrectionBinding, MessageVM>(MessageVM::class.java) {
 
     private val args: CorrectionFragmentArgs by navArgs()
     private lateinit var menu: Menu
@@ -41,6 +40,7 @@ class CorrectionFragment :
 
     private fun setMessage() {
         vm.correctionMessage = args.message
+        vm.user = args.user
     }
 
     private fun subscribeToLiveData() {

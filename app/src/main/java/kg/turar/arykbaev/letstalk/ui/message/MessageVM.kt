@@ -25,4 +25,8 @@ class MessageVM @Inject constructor(
     fun fetchMessage(countMessage: Int) {
         messageRepository.fetchMessage(user.id, countMessage)
     }
+
+    fun clearMessage() {
+        message.value = null
+    }
 }

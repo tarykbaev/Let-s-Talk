@@ -1,6 +1,7 @@
 package kg.turar.arykbaev.letstalk.ui.message
 
 import android.os.Bundle
+import android.util.Log
 import android.view.View
 import android.widget.AbsListView
 import androidx.core.widget.addTextChangedListener
@@ -33,14 +34,23 @@ class MessageFragment : BaseFragment<FragmentMessageBinding, MessageVM>(MessageV
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setHasOptionsMenu(true)
+        Log.d("subscribeToLiveData", "onCreate")
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         (activity?.application as App).appComponent.inject(this)
         super.onViewCreated(view, savedInstanceState)
+        resetValues()
         setUser()
         setupViews()
         subscribeToLiveData()
+        Log.d("subscribeToLiveData", "onCreate")
+    }
+
+    private fun resetValues() {
+        isScrolling = false
+        smoothScrollToPosition = true
+        countMessage = 20
     }
 
     private fun setUser() {
@@ -55,18 +65,24 @@ class MessageFragment : BaseFragment<FragmentMessageBinding, MessageVM>(MessageV
             }
         })
         vm.message.observe(viewLifecycleOwner, {
-            when (smoothScrollToPosition) {
-                true -> {
-                    adapter.addItemToBottom(it)
-                    ui.listMessage.smoothScrollToPosition(adapter.itemCount)
+            it?.let {
+                when (smoothScrollToPosition) {
+                    true -> {
+                        Log.d("subscribeToLiveData", "addItemToBottom$it")
+                        adapter.addItemToBottom(it)
+                        ui.listMessage.smoothScrollToPosition(adapter.itemCount)
+                    }
+                    else -> {
+                        Log.d("subscribeToLiveData", "addItemToTop")
+                        adapter.addItemToTop(it)
+                    }
                 }
-                else -> adapter.addItemToTop(it)
             }
-
         })
     }
 
     private fun setupViews() {
+        Log.d("subscribeToLiveData", "setupViews")
         adapter = MessageAdapter(this)
         layoutManager = LinearLayoutManager(this.context)
         ui.apply {
@@ -123,7 +139,8 @@ class MessageFragment : BaseFragment<FragmentMessageBinding, MessageVM>(MessageV
     }
 
     override fun onMessageClick(message: Message) {
-        navigateTo(MessageFragmentDirections.toCorrectionFragment(message))
+        vm.clearMessage()
+        navigateTo(MessageFragmentDirections.toCorrectionFragment(message, vm.user))
     }
 
     override fun performViewBinding() = FragmentMessageBinding.inflate(layoutInflater)
