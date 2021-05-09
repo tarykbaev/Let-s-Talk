@@ -29,7 +29,7 @@ class MessageFragment : BaseFragment<FragmentMessageBinding, MessageVM>(MessageV
     private lateinit var layoutManager: LinearLayoutManager
     private var isScrolling = false
     private var smoothScrollToPosition = true
-    private var countMessage = 20
+    private var countMessage = 30
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -50,7 +50,8 @@ class MessageFragment : BaseFragment<FragmentMessageBinding, MessageVM>(MessageV
     private fun resetValues() {
         isScrolling = false
         smoothScrollToPosition = true
-        countMessage = 20
+        countMessage = 30
+        vm.clearMessage()
     }
 
     private fun setUser() {
@@ -122,7 +123,7 @@ class MessageFragment : BaseFragment<FragmentMessageBinding, MessageVM>(MessageV
     private fun updateData() {
         isScrolling = false
         smoothScrollToPosition = false
-        countMessage += 20
+        countMessage += 30
         vm.fetchMessage(countMessage)
     }
 
@@ -134,7 +135,7 @@ class MessageFragment : BaseFragment<FragmentMessageBinding, MessageVM>(MessageV
 
     private fun toggleSendImage() {
         ui.apply {
-            if (inputSend.text.isNotEmpty()) imgSend.visible() else imgSend.invisible()
+            if (inputSend.text.isNotBlank()) imgSend.visible() else imgSend.invisible()
         }
     }
 

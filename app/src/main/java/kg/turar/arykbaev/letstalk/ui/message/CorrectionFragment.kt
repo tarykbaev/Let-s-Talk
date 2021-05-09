@@ -121,6 +121,9 @@ class CorrectionFragment : BaseFragment<FragmentCorrectionBinding, MessageVM>(Me
     }
 
     private fun correction() {
+        mainText.clear()
+        correctText.clear()
+
         val mainList = vm.getMessageText().split(" ")
         val correctList = ui.inputCorrection.toText.split(" ")
 
