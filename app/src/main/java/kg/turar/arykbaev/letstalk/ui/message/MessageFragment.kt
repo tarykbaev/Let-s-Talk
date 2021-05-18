@@ -69,12 +69,10 @@ class MessageFragment : BaseFragment<FragmentMessageBinding, MessageVM>(MessageV
             it?.let {
                 when (smoothScrollToPosition) {
                     true -> {
-                        Log.d("subscribeToLiveData", "addItemToBottom$it")
                         adapter.addItemToBottom(it)
                         ui.listMessage.smoothScrollToPosition(adapter.itemCount)
                     }
                     else -> {
-                        Log.d("subscribeToLiveData", "addItemToTop")
                         adapter.addItemToTop(it)
                     }
                 }

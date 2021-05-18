@@ -1,7 +1,6 @@
 package kg.turar.arykbaev.letstalk.ui.search
 
 import android.os.Bundle
-import android.util.Log
 import android.view.View
 import kg.turar.arykbaev.letstalk.App
 import kg.turar.arykbaev.letstalk.databinding.FragmentSearchBinding
@@ -19,11 +18,13 @@ class SearchFragment : BaseFragment<FragmentSearchBinding, MainVM>(MainVM::class
         (activity?.application as App).appComponent.inject(this)
         super.onViewCreated(view, savedInstanceState)
 
-        val options = vm.getRecyclerOptions()
-        adapter = UsersAdapter(options, this)
-
+        adapter = UsersAdapter(this)
+        adapter.clearItems()
         ui.listUsers.adapter = adapter
-        adapter.startListening()
+        vm.fetchUser(10)
+        vm.user.observe(viewLifecycleOwner, {
+            it?.let { adapter.addItem(it) }
+        })
     }
 
     override fun performViewBinding() = FragmentSearchBinding.inflate(layoutInflater)

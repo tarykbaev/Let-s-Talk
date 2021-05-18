@@ -27,4 +27,11 @@
         <item name="android:textSize">@dimen/text_21sp</item>
     </style>
 
+    <style name="SearchViewStyle" parent="Widget.AppCompat.SearchView">
+        <item name="searchIcon">@null</item>
+        <item name="queryBackground">@null</item>
+        <item name="searchHintIcon">@null</item>
+        <item name="queryHint">@string/search</item>
+    </style>
+
 </resources>
