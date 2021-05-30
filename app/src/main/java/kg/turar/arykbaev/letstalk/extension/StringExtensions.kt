@@ -5,8 +5,8 @@ import java.util.*
 
 
 fun String.isValidEmail(): Boolean {
-    return true
-    //(this.count() == 23) && (this.substringAfterLast("@") == "manas.edu.kg") && (this.count { it == '@' } == 1)
+//    return true
+    return (this.count() == 23) && (this.substringAfterLast("@") == "manas.edu.kg") && (this.count { it == '@' } == 1)
 }
 
 fun String.asTime(): String {

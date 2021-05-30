@@ -32,6 +32,8 @@ class StepTwoFragment : BaseFragment<FragmentStepTwoBinding, SignUpVM>(SignUpVM:
 
     private fun setUser() {
         vm.user = args.user
+        println("+++++++++++++++++++++++++=")
+        println(vm.user)
     }
 
     override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {

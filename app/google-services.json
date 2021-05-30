@@ -34,35 +34,6 @@
           ]
         }
       }
-    },
-    {
-      "client_info": {
-        "mobilesdk_app_id": "1:719708744509:android:b06ae6f2844ae35215f354",
-        "android_client_info": {
-          "package_name": "kg.turar.arykbaev.temp"
-        }
-      },
-      "oauth_client": [
-        {
-          "client_id": "719708744509-29mg3ufrkea0hhrljl39uoc14mskkra4.apps.googleusercontent.com",
-          "client_type": 3
-        }
-      ],
-      "api_key": [
-        {
-          "current_key": "AIzaSyBccW2yxPlnyEYH5-KeuQ1HiuaCaL4P1qo"
-        }
-      ],
-      "services": {
-        "appinvite_service": {
-          "other_platform_oauth_client": [
-            {
-              "client_id": "719708744509-29mg3ufrkea0hhrljl39uoc14mskkra4.apps.googleusercontent.com",
-              "client_type": 3
-            }
-          ]
-        }
-      }
     }
   ],
   "configuration_version": "1"

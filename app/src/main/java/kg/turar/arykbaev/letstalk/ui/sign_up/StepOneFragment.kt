@@ -51,9 +51,9 @@ class StepOneFragment : BaseFragment<FragmentStepOneBinding, SignUpVM>(SignUpVM:
 
     private fun sendUser() {
         val user = User(
-            ui.inputName.toText,
-            ui.inputEmail.toText,
-            ui.inputPassword.toText
+            name = ui.inputName.toText,
+            email = ui.inputEmail.toText,
+            password = ui.inputPassword.toText
         )
         navigateTo(StepOneFragmentDirections.toStepTwoFragment(user))
     }

@@ -11,11 +11,19 @@ import kg.turar.arykbaev.letstalk.ui.MainVM
 import kg.turar.arykbaev.letstalk.ui.base.BaseFragment
 
 
-class PersonFragment : BaseFragment<FragmentPersonBinding, MainVM>(MainVM::class.java) {
+class PersonFragment : BaseFragment<FragmentPersonBinding, PersonVM>(PersonVM::class.java) {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         (activity?.application as App).appComponent.inject(this)
         super.onViewCreated(view, savedInstanceState)
+        setupView()
+    }
+
+    private fun setupView() {
+        ui.tvPerson.setOnClickListener {
+            vm.logout()
+            navigateTo(PersonFragmentDirections.toLoginFragment())
+        }
     }
 
     override fun performViewBinding() = FragmentPersonBinding.inflate(layoutInflater)

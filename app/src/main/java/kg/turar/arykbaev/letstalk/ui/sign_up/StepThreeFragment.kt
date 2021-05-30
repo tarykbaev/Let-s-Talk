@@ -48,6 +48,8 @@ class StepThreeFragment : BaseFragment<FragmentStepThreeBinding, SignUpVM>(SignU
 
     private fun setUser() {
         vm.user = args.userData
+        println("____________________________")
+        println(vm.user)
     }
 
     private fun setupViews() {

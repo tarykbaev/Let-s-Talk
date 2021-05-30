@@ -6,6 +6,7 @@
     tools:context=".ui.person.PersonFragment">
 
     <TextView
+        android:id="@+id/tv_person"
         android:gravity="center"
         android:textSize="26sp"
         android:layout_width="match_parent"
