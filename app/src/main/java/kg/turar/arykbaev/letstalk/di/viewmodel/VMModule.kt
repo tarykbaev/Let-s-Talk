@@ -5,9 +5,11 @@ import dagger.Binds
 import dagger.Module
 import dagger.multibindings.IntoMap
 import kg.turar.arykbaev.letstalk.ui.MainVM
+import kg.turar.arykbaev.letstalk.ui.chat.ChatVM
 import kg.turar.arykbaev.letstalk.ui.login.LoginVM
 import kg.turar.arykbaev.letstalk.ui.message.MessageVM
 import kg.turar.arykbaev.letstalk.ui.person.PersonVM
+import kg.turar.arykbaev.letstalk.ui.search.SearchVM
 import kg.turar.arykbaev.letstalk.ui.sign_up.SignUpVM
 import javax.inject.Singleton
 
@@ -39,4 +41,14 @@ abstract class VMModule {
     @IntoMap
     @VMKey(PersonVM::class)
     abstract fun bindPersonVM(personVM: PersonVM): ViewModel
+
+    @Binds
+    @IntoMap
+    @VMKey(ChatVM::class)
+    abstract fun bindChatVM(chatVM: ChatVM): ViewModel
+
+    @Binds
+    @IntoMap
+    @VMKey(SearchVM::class)
+    abstract fun bindSearchVM(searchVM: SearchVM): ViewModel
 }

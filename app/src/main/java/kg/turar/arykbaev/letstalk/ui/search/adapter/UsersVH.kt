@@ -3,7 +3,6 @@ package kg.turar.arykbaev.letstalk.ui.search.adapter
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.navigation.findNavController
-import kg.turar.arykbaev.letstalk.R
 import kg.turar.arykbaev.letstalk.databinding.UsersItemBinding
 import kg.turar.arykbaev.letstalk.domain.UserState
 import kg.turar.arykbaev.letstalk.domain.models.User
@@ -11,7 +10,6 @@ import kg.turar.arykbaev.letstalk.extension.gone
 import kg.turar.arykbaev.letstalk.extension.setImageByName
 import kg.turar.arykbaev.letstalk.extension.setImageByUrl
 import kg.turar.arykbaev.letstalk.ui.base.CoreVH
-import kg.turar.arykbaev.letstalk.ui.chat.ChatFragmentDirections
 import kg.turar.arykbaev.letstalk.ui.search.SearchFragmentDirections
 import java.util.*
 

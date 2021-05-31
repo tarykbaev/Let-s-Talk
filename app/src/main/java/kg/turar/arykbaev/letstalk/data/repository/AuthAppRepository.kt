@@ -27,14 +27,16 @@ class AuthAppRepository @Inject constructor(
 
         path.putFile(user.uri!!)
             .addOnSuccessListener {
-                user.image_url = it.task.result.storage.downloadUrl.toString()
-                refDatabaseRoot.child(NODE_USERS).child(uid).updateChildren(getDateMap(user))
-                    .addOnSuccessListener {
-                        sendVerification()
-                    }
-                    .addOnFailureListener { exception ->
-                        event.value = Event.Notification(exception.message.toString())
-                    }
+                it.storage.downloadUrl.addOnCompleteListener {
+                    user.image_url = it.result.toString()
+                    refDatabaseRoot.child(NODE_USERS).child(uid).updateChildren(getDateMap(user))
+                        .addOnSuccessListener {
+                            sendVerification()
+                        }
+                        .addOnFailureListener { exception ->
+                            event.value = Event.Notification(exception.message.toString())
+                        }
+                }
             }
             .addOnFailureListener {
                 event.value = Event.Notification(it.message.toString())

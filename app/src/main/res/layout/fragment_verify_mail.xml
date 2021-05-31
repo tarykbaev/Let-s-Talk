@@ -4,6 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:fitsSystemWindows="true"
     android:padding="@dimen/padding_16dp"
     tools:context=".ui.sign_up.VerifyMailFragment">
 
@@ -36,7 +37,7 @@
         android:id="@+id/tv_description"
         style="@style/text_subtitle"
         android:layout_marginTop="@dimen/padding_8dp"
-        android:text="We have sent verification to your email."
+        android:text="We have sent verification link to your email."
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/tv_title" />

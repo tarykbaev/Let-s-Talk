@@ -2,26 +2,20 @@ package kg.turar.arykbaev.letstalk.ui.chat
 
 import android.os.Bundle
 import android.util.Log
-import android.view.MenuItem
 import android.view.View
 import androidx.appcompat.widget.SearchView
-
 import androidx.navigation.fragment.findNavController
 import androidx.navigation.ui.setupWithNavController
 import kg.turar.arykbaev.letstalk.App
 import kg.turar.arykbaev.letstalk.R
 import kg.turar.arykbaev.letstalk.databinding.FragmentChatBinding
 import kg.turar.arykbaev.letstalk.domain.Event
-import kg.turar.arykbaev.letstalk.domain.UserState
 import kg.turar.arykbaev.letstalk.domain.models.User
-import kg.turar.arykbaev.letstalk.extension.showWarningSnackbar
-import kg.turar.arykbaev.letstalk.ui.MainVM
 import kg.turar.arykbaev.letstalk.ui.base.BaseFragment
-import kg.turar.arykbaev.letstalk.ui.search.SearchFragmentDirections
 import kg.turar.arykbaev.letstalk.ui.search.adapter.UsersAdapter
 
 
-class ChatFragment : BaseFragment<FragmentChatBinding, MainVM>(MainVM::class.java), UsersAdapter.Listener {
+class ChatFragment : BaseFragment<FragmentChatBinding, ChatVM>(ChatVM::class.java), UsersAdapter.Listener {
 
     private lateinit var adapter: UsersAdapter
 
@@ -54,7 +48,6 @@ class ChatFragment : BaseFragment<FragmentChatBinding, MainVM>(MainVM::class.jav
         ui.toolbarChat.apply {
             setupWithNavController(findNavController())
             inflateMenu(R.menu.search_menu)
-            setOnMenuItemClickListener { onMenuItemSelected(it) }
         }
         val searchItem = ui.toolbarChat.menu.findItem(R.id.search_user)
         val searchView = searchItem.actionView as SearchView
@@ -70,20 +63,11 @@ class ChatFragment : BaseFragment<FragmentChatBinding, MainVM>(MainVM::class.jav
             }
         })
         adapter.clearItems()
-        vm.fetchChatUser(10)
+        vm.fetchChatUser(100)
         vm.chatUser.observe(viewLifecycleOwner, {
             it?.let { adapter.addItem(it) }
             Log.d("ChatFragment", it.toString())
         })
-    }
-
-    private fun onMenuItemSelected(item: MenuItem): Boolean {
-        when (item.itemId) {
-            R.id.search_user -> ui.toolbarChat.title = ""
-            R.id.search_close_btn -> ui.toolbarChat.title = getString(R.string.app_name)
-        }
-        println("****************************************************")
-        return true
     }
 
     override fun onUserClick(user: User) {

@@ -28,14 +28,14 @@
         <action
             android:id="@+id/toLogin_fragment"
             app:destination="@id/login_fragment"
-            app:popUpTo="@id/login_fragment"
+            app:popUpTo="@id/profile_fragment"
             app:popUpToInclusive="true"/>
     </fragment>
 
     <fragment
         android:id="@+id/search_fragment"
         android:name="kg.turar.arykbaev.letstalk.ui.search.SearchFragment"
-        android:label="fragment_search"
+        android:label="Find Partners"
         tools:layout="@layout/fragment_search">
         <action
             android:id="@+id/toMessageFragment"
@@ -107,7 +107,8 @@
     <fragment
         android:id="@+id/messageFragment"
         android:name="kg.turar.arykbaev.letstalk.ui.message.MessageFragment"
-        android:label="">
+        android:label=""
+        tools:layout="@layout/fragment_message">
         <argument
             android:name="user"
             app:argType="kg.turar.arykbaev.letstalk.domain.models.User" />
@@ -117,11 +118,15 @@
         <action
             android:id="@+id/toCorrectionFragment"
             app:destination="@id/correctionFragment" />
+        <action
+            android:id="@+id/action_messageFragment_to_personInfoFragment"
+            app:destination="@id/personInfoFragment" />
     </fragment>
     <fragment
         android:id="@+id/pictureFragment"
         android:name="kg.turar.arykbaev.letstalk.ui.person_info.PictureFragment"
-        android:label="PictureFragment">
+        android:label="PictureFragment"
+        tools:layout="@layout/fragment_picture">
         <argument
             android:name="user"
             app:argType="kg.turar.arykbaev.letstalk.domain.models.User" />
@@ -129,10 +134,20 @@
     <fragment
         android:id="@+id/correctionFragment"
         android:name="kg.turar.arykbaev.letstalk.ui.message.CorrectionFragment"
-        android:label="Correct Sentences" >
+        android:label="Correct Sentences"
+        tools:layout="@layout/fragment_correction">
         <argument
             android:name="message"
             app:argType="kg.turar.arykbaev.letstalk.domain.models.Message" />
+        <argument
+            android:name="user"
+            app:argType="kg.turar.arykbaev.letstalk.domain.models.User" />
+    </fragment>
+    <fragment
+        tools:layout="@layout/fragment_person_info"
+        android:id="@+id/personInfoFragment"
+        android:name="kg.turar.arykbaev.letstalk.ui.person_info.PersonInfoFragment"
+        android:label="PersonInfoFragment" >
         <argument
             android:name="user"
             app:argType="kg.turar.arykbaev.letstalk.domain.models.User" />

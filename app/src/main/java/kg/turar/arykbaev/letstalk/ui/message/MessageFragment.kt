@@ -31,11 +31,6 @@ class MessageFragment : BaseFragment<FragmentMessageBinding, MessageVM>(MessageV
     private var smoothScrollToPosition = true
     private var countMessage = 30
 
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
-        setHasOptionsMenu(true)
-        Log.d("subscribeToLiveData", "onCreate")
-    }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         (activity?.application as App).appComponent.inject(this)
@@ -44,7 +39,6 @@ class MessageFragment : BaseFragment<FragmentMessageBinding, MessageVM>(MessageV
         setUser()
         setupViews()
         subscribeToLiveData()
-        Log.d("subscribeToLiveData", "onCreate")
     }
 
     private fun resetValues() {
@@ -81,7 +75,6 @@ class MessageFragment : BaseFragment<FragmentMessageBinding, MessageVM>(MessageV
     }
 
     private fun setupViews() {
-        Log.d("subscribeToLiveData", "setupViews")
         adapter = MessageAdapter(this)
         layoutManager = LinearLayoutManager(this.context)
         ui.apply {
@@ -116,6 +109,10 @@ class MessageFragment : BaseFragment<FragmentMessageBinding, MessageVM>(MessageV
                 }
             }
         })
+
+        ui.titleContainer.setOnClickListener {
+            navigateTo(MessageFragmentDirections.actionMessageFragmentToPersonInfoFragment(vm.user))
+        }
     }
 
     private fun updateData() {

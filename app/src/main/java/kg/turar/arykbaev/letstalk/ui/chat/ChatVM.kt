@@ -1,4 +1,4 @@
-package kg.turar.arykbaev.letstalk.ui
+package kg.turar.arykbaev.letstalk.ui.chat
 
 import kg.turar.arykbaev.letstalk.data.repository.AuthAppRepository
 import kg.turar.arykbaev.letstalk.data.repository.SearchRepository
@@ -7,13 +7,14 @@ import kg.turar.arykbaev.letstalk.domain.models.User
 import kg.turar.arykbaev.letstalk.ui.base.BaseVM
 import javax.inject.Inject
 
-class MainVM @Inject constructor(
+class ChatVM @Inject constructor(
     private val repository: AuthAppRepository,
     private val searchRepository: SearchRepository
 ) : BaseVM() {
 
     lateinit var currentUser: User
     val user = searchRepository.users
+    val chatUser = searchRepository.chatUser
 
     init {
         event = repository.getEvent()

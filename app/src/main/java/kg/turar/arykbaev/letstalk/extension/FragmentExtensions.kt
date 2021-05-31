@@ -1,14 +1,19 @@
 package kg.turar.arykbaev.letstalk.extension
 
 import android.app.Activity
+import android.content.Context
 import android.graphics.Color
 import android.view.LayoutInflater
 import android.view.View
 import android.view.inputmethod.InputMethodManager
 import android.widget.TextView
 import android.widget.Toast
+import androidx.appcompat.app.AlertDialog
 import androidx.core.text.parseAsHtml
 import androidx.fragment.app.Fragment
+import androidx.lifecycle.Lifecycle
+import androidx.lifecycle.LifecycleObserver
+import androidx.lifecycle.OnLifecycleEvent
 import com.google.android.material.snackbar.Snackbar
 import kg.turar.arykbaev.letstalk.R
 import kg.turar.arykbaev.letstalk.ui.MainActivity
@@ -43,4 +48,25 @@ fun Fragment.hideKeyboard() {
     val imm = activity.getSystemService(Activity.INPUT_METHOD_SERVICE) as InputMethodManager
     val view = activity.currentFocus
     view?.let { imm.hideSoftInputFromWindow(it.windowToken, 0) }
+}
+
+fun Fragment.showDialog(builderFunction: AlertDialog.Builder.() -> Any) {
+    showDialog(lifecycle, builderFunction)
+}
+
+private fun Fragment.showDialog(lifecycle: Lifecycle, builderFunction: AlertDialog.Builder.() -> Any) {
+    val builder = AlertDialog.Builder(requireContext(), R.style.app_alert_dialog).apply {
+        setCancelable(false)
+    }
+    builder.builderFunction()
+    val dialog = builder.create()
+    lifecycle.addObserver(object : LifecycleObserver {
+        @OnLifecycleEvent(Lifecycle.Event.ON_DESTROY)
+        fun dismissDialog() {
+            if (dialog.isShowing) {
+                dialog.cancel()
+            }
+        }
+    })
+    dialog.show()
 }
